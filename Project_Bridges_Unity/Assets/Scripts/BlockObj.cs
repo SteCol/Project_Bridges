@@ -5,10 +5,19 @@ using UnityEngine;
 [System.Serializable]
 public class BlockObj {
 
-    public string obj;
+    public string name;
     public GameObject block;
+    public Material material;
 
-    public BlockObj(string _obj) {
-        obj = _obj;
+    public BlockObj(string _name, Material _material) {
+        name = _name;
+        material = _material;
+    }
+
+    public BlockObj(string _name, Material _material, GameObject _prefab)
+    {
+        name = _name;
+        material = _material;
+        block = _prefab;
     }
 }

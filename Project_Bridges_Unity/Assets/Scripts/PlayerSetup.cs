@@ -10,10 +10,14 @@ public class PlayerSetup : MonoBehaviour
     [Header("Auto Setup")]
     public bool generate;
     public bool update;
+    public bool assignBlocks;
+
 
     [Header("Setup Parameters")]
     public int amountOfPlayers;
     public int amountOfBlocksEach;
+    public List<Material> materials;
+    public List<GameObject> prefabs;
 
     [Header("Players")]
     public List<Player> players;
@@ -31,6 +35,11 @@ public class PlayerSetup : MonoBehaviour
             UpdatePlayer();
             update = false;
         }
+
+        if (assignBlocks) {
+            AssignBlocks();
+            assignBlocks = false;
+        }
     }
 
     void GeneratePlayers()
@@ -38,7 +47,9 @@ public class PlayerSetup : MonoBehaviour
         players.Clear();
         for (int i = 0; i < amountOfPlayers; i++)
         {
-            players.Add(new Player(i + 1, InputMode.Keyboard, amountOfBlocksEach));
+            players.Add(new Player(i + 1, InputMode.Keyboard, materials[i]));
+            players[i].UpdateBlocks(amountOfBlocksEach);
+            AssignBlocks();
         }
     }
 
@@ -48,6 +59,17 @@ public class PlayerSetup : MonoBehaviour
         {
             p.UpdateInputMode(p.inputMode);
             p.UpdateBlocks(amountOfBlocksEach);
+            AssignBlocks();
+        }
+    }
+
+    void AssignBlocks() {
+        foreach (Player p in players)
+        {
+            foreach (BlockObj b in p.blocks) {
+                int i = Random.Range(0, prefabs.Count);
+                b.block = prefabs[i];
+            }
         }
     }
 }
