@@ -12,7 +12,6 @@ public class PlayerSetup : MonoBehaviour
     public bool updateInputType;
     public bool generateBlocks;
 
-
     [Header("Setup Parameters")]
     public GameObject player;
     public int amountOfPlayers;
