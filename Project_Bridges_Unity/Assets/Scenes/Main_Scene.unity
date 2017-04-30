@@ -598,7 +598,60 @@ MonoBehaviour:
   generate: 0
   update: 0
   amountOfPlayers: 4
-  players: []
+  amountOfBlocksEach: 3
+  players:
+  - name: Player_1
+    playerNum: 1
+    inputMode: 0
+    horizontalInput: Player_1_Keyboard_Horizontal
+    verticalInput: Player_1_Keyboard_Vertical
+    button: Player_1_Keyboard_Button
+    blocks:
+    - obj: Block_0
+      block: {fileID: 0}
+    - obj: Block_1
+      block: {fileID: 0}
+    - obj: Block_2
+      block: {fileID: 0}
+  - name: Player_2
+    playerNum: 2
+    inputMode: 0
+    horizontalInput: Player_2_Keyboard_Horizontal
+    verticalInput: Player_2_Keyboard_Vertical
+    button: Player_2_Keyboard_Button
+    blocks:
+    - obj: Block_0
+      block: {fileID: 0}
+    - obj: Block_1
+      block: {fileID: 0}
+    - obj: Block_2
+      block: {fileID: 0}
+  - name: Player_3
+    playerNum: 3
+    inputMode: 0
+    horizontalInput: Player_3_Keyboard_Horizontal
+    verticalInput: Player_3_Keyboard_Vertical
+    button: Player_3_Keyboard_Button
+    blocks:
+    - obj: Block_0
+      block: {fileID: 0}
+    - obj: Block_1
+      block: {fileID: 0}
+    - obj: Block_2
+      block: {fileID: 0}
+  - name: Player_4
+    playerNum: 4
+    inputMode: 0
+    horizontalInput: Player_4_Keyboard_Horizontal
+    verticalInput: Player_4_Keyboard_Vertical
+    button: Player_4_Keyboard_Button
+    blocks:
+    - obj: Block_0
+      block: {fileID: 0}
+    - obj: Block_1
+      block: {fileID: 0}
+    - obj: Block_2
+      block: {fileID: 0}
 --- !u!4 &674495064
 Transform:
   m_ObjectHideFlags: 0

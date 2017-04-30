@@ -7,18 +7,16 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class PlayerSetup : MonoBehaviour
 {
-
+    [Header("Auto Setup")]
     public bool generate;
     public bool update;
 
+    [Header("Setup Parameters")]
     public int amountOfPlayers;
+    public int amountOfBlocksEach;
 
+    [Header("Players")]
     public List<Player> players;
-
-    void Start()
-    {
-
-    }
 
     void Update()
     {
@@ -40,7 +38,7 @@ public class PlayerSetup : MonoBehaviour
         players.Clear();
         for (int i = 0; i < amountOfPlayers; i++)
         {
-            players.Add(new Player(i + 1, InputMode.Keyboard));
+            players.Add(new Player(i + 1, InputMode.Keyboard, amountOfBlocksEach));
         }
     }
 
@@ -48,20 +46,15 @@ public class PlayerSetup : MonoBehaviour
     {
         foreach (Player p in players)
         {
-            if (p.inputMode != p.inputModeOld)
-            {
-                p.inputModeOld = p.inputMode;
-                p.horizontalInput = "Player_" + p.playerNum + "_" + p.inputMode.ToString() + "_Horizontal";
-                p.verticalInput = "Player_" + p.playerNum + "_" + p.inputMode.ToString() + "_Vertical";
-                p.button = "Player_" + p.playerNum + "_" + p.inputMode.ToString() + "_Button";
-            }
+            p.UpdateInputMode(p.inputMode);
+            p.UpdateBlocks(amountOfBlocksEach);
         }
     }
 }
 
-    public enum InputMode
-    {
-        Keyboard,
-        Mouse,
-        Controller
-    }
+public enum InputMode
+{
+    Keyboard,
+    Mouse,
+    Controller
+}
