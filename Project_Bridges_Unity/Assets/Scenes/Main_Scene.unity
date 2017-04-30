@@ -597,24 +597,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   generate: 0
   update: 0
-  amountOfPlayers: 2
-  players:
-  - name: Player_1
-    playerNum: 1
-    inputMode: 2
-    inputModeOld: 2
-    horizontalInput: Player_1_Controller_Horizontal
-    verticalInput: Player_1_Controller_Vertical
-    button: Player_1_Controller_Button
-    blocks: []
-  - name: Player_2
-    playerNum: 2
-    inputMode: 2
-    inputModeOld: 2
-    horizontalInput: Player_2_Controller_Horizontal
-    verticalInput: Player_2_Controller_Vertical
-    button: Player_2_Controller_Button
-    blocks: []
+  amountOfPlayers: 4
+  players: []
 --- !u!4 &674495064
 Transform:
   m_ObjectHideFlags: 0
