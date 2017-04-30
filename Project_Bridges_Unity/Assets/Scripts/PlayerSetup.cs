@@ -8,12 +8,13 @@ using UnityEngine;
 public class PlayerSetup : MonoBehaviour
 {
     [Header("Auto Setup")]
-    public bool generate;
-    public bool update;
-    public bool assignBlocks;
+    public bool generatePlayers;
+    public bool updateInputType;
+    public bool generateBlocks;
 
 
     [Header("Setup Parameters")]
+    public GameObject player;
     public int amountOfPlayers;
     public int amountOfBlocksEach;
     public List<Material> materials;
@@ -24,21 +25,21 @@ public class PlayerSetup : MonoBehaviour
 
     void Update()
     {
-        if (generate)
+        if (generatePlayers)
         {
             GeneratePlayers();
-            generate = false;
+            generatePlayers = false;
         }
 
-        if (update)
+        if (updateInputType)
         {
             UpdatePlayer();
-            update = false;
+            updateInputType = false;
         }
 
-        if (assignBlocks) {
+        if (generateBlocks) {
             AssignBlocks();
-            assignBlocks = false;
+            generateBlocks = false;
         }
     }
 
@@ -58,14 +59,16 @@ public class PlayerSetup : MonoBehaviour
         foreach (Player p in players)
         {
             p.UpdateInputMode(p.inputMode);
-            p.UpdateBlocks(amountOfBlocksEach);
-            AssignBlocks();
+            //p.UpdateBlocks(amountOfBlocksEach);
+            //AssignBlocks();
         }
     }
 
     void AssignBlocks() {
         foreach (Player p in players)
         {
+            p.blocks.Clear();
+            p.UpdateBlocks(amountOfBlocksEach);
             foreach (BlockObj b in p.blocks) {
                 int i = Random.Range(0, prefabs.Count);
                 b.block = prefabs[i];

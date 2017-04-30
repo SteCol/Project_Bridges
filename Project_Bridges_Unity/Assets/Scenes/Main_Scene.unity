@@ -491,6 +491,7 @@ GameObject:
   m_Component:
   - component: {fileID: 674495064}
   - component: {fileID: 674495063}
+  - component: {fileID: 674495065}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -509,11 +510,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 264df2a4046dfb248b10f689e0912351, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  generate: 0
-  update: 0
-  assignBlocks: 0
+  generatePlayers: 0
+  updateInputType: 0
+  generateBlocks: 0
+  player: {fileID: 1598863519746890, guid: dc60cb979dce4dc4d93af1ded3d0eb48, type: 2}
   amountOfPlayers: 2
-  amountOfBlocksEach: 2
+  amountOfBlocksEach: 3
   materials:
   - {fileID: 2100000, guid: 9c35f76609502d742a834288925866a9, type: 2}
   - {fileID: 2100000, guid: 2e7d83e8b34c86e4da2d9c1747f0949c, type: 2}
@@ -530,31 +532,43 @@ MonoBehaviour:
   players:
   - name: Player_1
     playerNum: 1
-    inputMode: 1
+    inputMode: 0
     material: {fileID: 2100000, guid: 9c35f76609502d742a834288925866a9, type: 2}
-    horizontalInput: Player_1_Mouse_Horizontal
-    verticalInput: Player_1_Mouse_Vertical
-    button: Player_1_Mouse_Button
+    horizontalInput: Player_1_Keyboard_Horizontal
+    xPos: 0
+    verticalInput: Player_1_Keyboard_Vertical
+    yPos: 0
+    buttonInput: Player_1_Keyboard_Button
+    action: 0
     blocks:
     - name: Block_0
-      block: {fileID: 1011455988547030, guid: 1a12488e839de114d8528fd2f9e14c76, type: 2}
+      block: {fileID: 1679732232767276, guid: 1f5fe717bb098a54ebc24d588d27f6f1, type: 2}
       material: {fileID: 2100000, guid: 9c35f76609502d742a834288925866a9, type: 2}
     - name: Block_1
-      block: {fileID: 1011455988547030, guid: 1a12488e839de114d8528fd2f9e14c76, type: 2}
+      block: {fileID: 1687559804348310, guid: 9be329cc526796f42ac2d6a722c5bb29, type: 2}
+      material: {fileID: 2100000, guid: 9c35f76609502d742a834288925866a9, type: 2}
+    - name: Block_2
+      block: {fileID: 1687559804348310, guid: 9be329cc526796f42ac2d6a722c5bb29, type: 2}
       material: {fileID: 2100000, guid: 9c35f76609502d742a834288925866a9, type: 2}
   - name: Player_2
     playerNum: 2
     inputMode: 0
     material: {fileID: 2100000, guid: 2e7d83e8b34c86e4da2d9c1747f0949c, type: 2}
     horizontalInput: Player_2_Keyboard_Horizontal
+    xPos: 0
     verticalInput: Player_2_Keyboard_Vertical
-    button: Player_2_Keyboard_Button
+    yPos: 0
+    buttonInput: Player_2_Keyboard_Button
+    action: 0
     blocks:
     - name: Block_0
-      block: {fileID: 1679732232767276, guid: 1f5fe717bb098a54ebc24d588d27f6f1, type: 2}
+      block: {fileID: 1950084109766696, guid: 339a7335675c06543bcff3084777cf81, type: 2}
       material: {fileID: 2100000, guid: 2e7d83e8b34c86e4da2d9c1747f0949c, type: 2}
     - name: Block_1
-      block: {fileID: 1237062452285840, guid: a247172d98aa4074bbc7f57a08789ecc, type: 2}
+      block: {fileID: 1950084109766696, guid: 339a7335675c06543bcff3084777cf81, type: 2}
+      material: {fileID: 2100000, guid: 2e7d83e8b34c86e4da2d9c1747f0949c, type: 2}
+    - name: Block_2
+      block: {fileID: 1594830269598356, guid: 3f7c67bc799e9c8408ba6ac308cb1be9, type: 2}
       material: {fileID: 2100000, guid: 2e7d83e8b34c86e4da2d9c1747f0949c, type: 2}
 --- !u!4 &674495064
 Transform:
@@ -569,6 +583,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &674495065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 674495062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48ab8ddf0e2de1345adf652b0fdd0298, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerSetup: {fileID: 674495063}
 --- !u!1001 &768753855
 Prefab:
   m_ObjectHideFlags: 0
@@ -851,7 +877,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1190466827
 Transform:
   m_ObjectHideFlags: 0
