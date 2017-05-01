@@ -14,8 +14,8 @@ public class GameController : MonoBehaviour {
         if (playerSetup == null) {
             playerSetup = this.GetComponent<PlayerSetup>();
         }
-
-	}
+        StartGame();
+    }
 
     void FixedUpdate() {
         if (generate) {
