@@ -41,7 +41,7 @@ public class GameController : MonoBehaviour {
                     b.MakeParent(p.playerinGame.transform);
                 }
                 else if (p.action == false) {
-                    b.MakeParent(null);
+                    b.MakeParent(b.container.transform);
                     b.grabState = 0;
                 }
             }
@@ -93,6 +93,8 @@ public class GameController : MonoBehaviour {
                 GameObject block = Instantiate(b.blockPrefab);
                 block.name = p.name + "/" + b.name + "/" + block.GetComponent<MeshFilter>().name;
                 block.transform.parent = blocks.transform;
+                b.container = blocks;
+
                 block.GetComponent<Renderer>().material = b.material;
                 b.inGameBlock = block;
                 block.transform.position = spawnPos.position;

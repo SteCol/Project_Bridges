@@ -11,7 +11,7 @@ public class PlayerObject : MonoBehaviour
         playerSetup = GameObject.FindGameObjectWithTag("GameController").GetComponent<PlayerSetup>();
     }
 
-    void OnTriggerEnter(Collider col)
+    void OnTriggerStay(Collider col)
     {
         DoChecks(col, 1);
     }

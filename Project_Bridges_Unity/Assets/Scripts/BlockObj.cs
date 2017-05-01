@@ -8,6 +8,7 @@ public class BlockObj {
     public string name;
     public GameObject blockPrefab;
     public GameObject inGameBlock;
+    public GameObject container;
 
     public Material material;
 

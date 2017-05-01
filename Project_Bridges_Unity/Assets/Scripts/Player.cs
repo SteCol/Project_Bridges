@@ -63,7 +63,7 @@ public class Player  {
         xPos = Input.GetAxis(horizontalInput);
         yPos = Input.GetAxis(verticalInput);
         action = Input.GetButton(buttonInput);
-        rot = rot + Input.GetAxis(rotationInput);
+        rot = rot + Input.GetAxis(rotationInput) * 5;
 
         if (playerinGame != null)
         {
