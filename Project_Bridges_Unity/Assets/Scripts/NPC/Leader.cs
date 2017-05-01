@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NPC : MonoBehaviour {
+public class Leader : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
