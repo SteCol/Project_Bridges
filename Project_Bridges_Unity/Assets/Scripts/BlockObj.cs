@@ -6,7 +6,9 @@ using UnityEngine;
 public class BlockObj {
 
     public string name;
-    public GameObject block;
+    public GameObject blockPrefab;
+    public GameObject inGameBlock;
+
     public Material material;
 
     public BlockObj(string _name, Material _material) {
@@ -18,6 +20,6 @@ public class BlockObj {
     {
         name = _name;
         material = _material;
-        block = _prefab;
+        blockPrefab = _prefab;
     }
 }
