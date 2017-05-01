@@ -11,6 +11,7 @@ public class Player  {
     public int playerNum;
     public InputMode inputMode;
     public Material material;
+    public GameObject player;
 
     [Header("Inputs")]
     public string horizontalInput;

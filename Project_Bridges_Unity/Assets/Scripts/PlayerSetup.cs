@@ -40,6 +40,7 @@ public class PlayerSetup : MonoBehaviour
             AssignBlocks();
             generateBlocks = false;
         }
+
     }
 
     void GeneratePlayers()
@@ -72,6 +73,12 @@ public class PlayerSetup : MonoBehaviour
                 int i = Random.Range(0, prefabs.Count);
                 b.block = prefabs[i];
             }
+        }
+    }
+
+    void Move() {
+        foreach (Player p in players) {
+
         }
     }
 }

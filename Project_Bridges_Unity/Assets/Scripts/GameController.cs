@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour {
     public PlayerSetup playerSetup;
-    public GameObject Obj;
+    public GameObject containerObject;
 
     void Start () {
         if (playerSetup == null) {
@@ -17,12 +17,12 @@ public class GameController : MonoBehaviour {
         Debug.Log("STARTING GENERATION");
 
         //Make an empty GameObject for all the players.
-        GameObject playerContainer = Instantiate(Obj);
+        GameObject playerContainer = Instantiate(containerObject);
         playerContainer.name = "Player Container";
 
         foreach (Player p in playerSetup.players) {
             //make an empty GameObject per player, to hold the player object and the blocks container.
-            GameObject container = Instantiate(Obj);
+            GameObject container = Instantiate(containerObject);
             container.name = p.name + " Container";
             container.transform.parent = playerContainer.transform;
 
@@ -31,9 +31,10 @@ public class GameController : MonoBehaviour {
             player.name = p.name;
             player.transform.parent = container.transform;
             player.GetComponent<Renderer>().material = p.material;
+            p.player = player;
 
             //Make an empty GameObject to hold the blocks.
-            GameObject blocks = Instantiate(Obj);
+            GameObject blocks = Instantiate(containerObject);
             blocks.name = "Blocks";
             blocks.transform.parent = container.transform;
 
