@@ -41,6 +41,9 @@ public class PlayerSetup : MonoBehaviour
             generateBlocks = false;
         }
 
+        foreach (Player p in players) {
+            p.Move();
+        }
     }
 
     void GeneratePlayers()
