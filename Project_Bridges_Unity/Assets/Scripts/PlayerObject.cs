@@ -14,7 +14,6 @@ public class PlayerObject : MonoBehaviour
     void OnTriggerEnter(Collider col)
     {
         DoChecks(col, 1);
-
     }
 
     void OnTriggerExit(Collider col)

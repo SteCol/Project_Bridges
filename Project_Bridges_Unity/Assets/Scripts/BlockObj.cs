@@ -30,4 +30,8 @@ public class BlockObj {
         material = _material;
         blockPrefab = _prefab;
     }
+
+    public void MakeParent(Transform transform) {
+        inGameBlock.transform.parent = transform;
+    }
 }

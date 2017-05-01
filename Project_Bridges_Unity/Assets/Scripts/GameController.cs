@@ -22,6 +22,8 @@ public class GameController : MonoBehaviour {
             StartGame();
             generate = false;
         }
+
+        MoveBlocks();
     }
 
     void UpdateSpawnPos() {
@@ -31,10 +33,17 @@ public class GameController : MonoBehaviour {
 
     }
 
-    void CheckCollisions() {
+    void MoveBlocks() {
         foreach (Player p in playerSetup.players) {
             foreach (BlockObj b in p.blocks) {
-                
+                if (p.action == true && b.grabState == 1)
+                {
+                    b.MakeParent(p.playerinGame.transform);
+                }
+                else if (p.action == false) {
+                    b.MakeParent(null);
+                    b.grabState = 0;
+                }
             }
         }
     }
