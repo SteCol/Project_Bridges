@@ -5,21 +5,21 @@ using UnityEngine;
 [System.Serializable]
 public class Node
 {
-    public GameObject gameobject;
-    public Vector3 position;
-    public List<Node> nodes;
 
-    public Node(GameObject _gameobject) {
-        gameobject = _gameobject;
-        position = gameobject.transform.position;
-    }
+    public int index;
+    public int iteration;
+    public int parent;
+    public int fromIteration;
 
-    public IEnumerator MoveForward() {
-        Debug.Log(Time.deltaTime + " Node is moving");
-        yield return new WaitForSeconds(0.5f);
-        Debug.Log(Time.deltaTime + "Node finished waiting");
 
-        Debug.Log(Time.deltaTime + "Node finished moving");
-        yield return null;
+    public GameObject linkedNode;
+
+    public Node(GameObject _linkedNode, int _index, int _iteration, int _parent, int _froIteration)
+    {
+        linkedNode = _linkedNode;
+        index = _index;
+        parent = _parent;
+        iteration = _iteration;
+        fromIteration = _iteration;
     }
 }

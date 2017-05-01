@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Leader : MonoBehaviour
 {
-    public int weight;
+    public int index;
+    public int fromIteration;
     public Vector3 rayOne, rayTwo;
     public List<Vector3> toGenerateFrom;
 
@@ -36,7 +37,7 @@ public class Leader : MonoBehaviour
             if (hit.transform.gameObject.tag == "Block" && hit.transform.gameObject.tag != "Leader")
             {
                 rayOneBool = true;
-                GenerateNew();
+                StartCoroutine( GenerateNew());
             }
         }
 
@@ -46,32 +47,39 @@ public class Leader : MonoBehaviour
         }
     }
 
-    void GenerateNew()
+    IEnumerator GenerateNew()
     {
+        int iteration = 0;
+        float genSpeed = 0.01f;
         print("Starting GenerateNew()");
         foreach (Vector3 pos in toGenerateFrom)
         {
-
+            iteration++;
             RaycastHit hit;
             Vector3 rayPos = transform.position + pos + new Vector3(0, 1, 0);
             Vector3 spawnPos = transform.position + pos;
 
+            Debug.DrawRay(rayPos, -transform.up, Color.blue, genSpeed);
             if (Physics.Raycast(rayPos, -transform.up, out hit, 2.0f))
             {
                 if (hit.transform.gameObject.tag == "Block")
                 {
-                    weight = npc.weight;
-                    Debug.DrawRay(rayPos, -transform.up, Color.green, 5.0f);
+                    Debug.DrawRay(rayPos, -transform.up, Color.green, genSpeed);
                     GameObject node = Instantiate(copy, spawnPos, Quaternion.identity, GameObject.FindGameObjectWithTag("NPC").transform);
-                    copy.name = npc.leaderIndex + " _Node_" + weight.ToString() ;
-                    npc.leaderIndex++;
+                    //GameObject node = Instantiate(copy, spawnPos, Quaternion.identity, transform);
+                    //node.transform.parent = this.transform;
+                    node.GetComponent<Leader>().index = index + 1;
+                    node.GetComponent<Leader>().fromIteration = iteration;
+                    node.name = this.name + iteration;
+                    //node.name = "Node_" + node.GetComponent<Leader>().index.ToString("000") + "_[i: " + iteration + "]_[parent: " + index + ", " + node.GetComponent<Leader>().fromIteration + "]";
+                    npc.nodes.Add(new Node(node.gameObject, node.GetComponent<Leader>().index,iteration, index, iteration));
                 }
                 else
                 {
-                    Debug.DrawRay(rayPos, -transform.up, Color.red, 5.0f);
+                    Debug.DrawRay(rayPos, -transform.up, Color.red, genSpeed);
                 }
             }
+            yield return new WaitForSeconds(genSpeed);
         }
-        npc.weight++;
     }
 }
