@@ -516,7 +516,7 @@ MonoBehaviour:
   updateInputType: 0
   generateBlocks: 0
   player: {fileID: 1598863519746890, guid: dc60cb979dce4dc4d93af1ded3d0eb48, type: 2}
-  amountOfPlayers: 2
+  amountOfPlayers: 4
   amountOfBlocksEach: 0
   materials:
   - {fileID: 2100000, guid: 9c35f76609502d742a834288925866a9, type: 2}
@@ -534,22 +534,8 @@ MonoBehaviour:
   players:
   - name: Player_1
     playerNum: 1
-    inputMode: 1
-    material: {fileID: 2100000, guid: 9c35f76609502d742a834288925866a9, type: 2}
-    player: {fileID: 0}
-    horizontalInput: Player_1_Mouse_Horizontal
-    xPos: 0
-    verticalInput: Player_1_Mouse_Vertical
-    yPos: 0
-    buttonInput: Player_1_Mouse_Button
-    action: 0
-    rotationInput: Player_1_Mouse_Rotation
-    rot: 0
-    blocks: []
-  - name: Player_2
-    playerNum: 1
     inputMode: 0
-    material: {fileID: 2100000, guid: 2e7d83e8b34c86e4da2d9c1747f0949c, type: 2}
+    material: {fileID: 2100000, guid: 9c35f76609502d742a834288925866a9, type: 2}
     player: {fileID: 0}
     horizontalInput: Player_1_Keyboard_Horizontal
     xPos: 0
@@ -558,6 +544,48 @@ MonoBehaviour:
     buttonInput: Player_1_Keyboard_Button
     action: 0
     rotationInput: Player_1_Keyboard_Rotation
+    rot: 0
+    blocks: []
+  - name: Player_2
+    playerNum: 2
+    inputMode: 0
+    material: {fileID: 2100000, guid: 2e7d83e8b34c86e4da2d9c1747f0949c, type: 2}
+    player: {fileID: 0}
+    horizontalInput: Player_2_Keyboard_Horizontal
+    xPos: 0
+    verticalInput: Player_2_Keyboard_Vertical
+    yPos: 0
+    buttonInput: Player_2_Keyboard_Button
+    action: 0
+    rotationInput: Player_2_Keyboard_Rotation
+    rot: 0
+    blocks: []
+  - name: Player_3
+    playerNum: 3
+    inputMode: 0
+    material: {fileID: 2100000, guid: a8d744d6e8cbc2049b4eb86ccbdb3177, type: 2}
+    player: {fileID: 0}
+    horizontalInput: Player_3_Keyboard_Horizontal
+    xPos: 0
+    verticalInput: Player_3_Keyboard_Vertical
+    yPos: 0
+    buttonInput: Player_3_Keyboard_Button
+    action: 0
+    rotationInput: Player_3_Keyboard_Rotation
+    rot: 0
+    blocks: []
+  - name: Player_4
+    playerNum: 4
+    inputMode: 0
+    material: {fileID: 2100000, guid: 9b8d019e006f7f749bcc4e5f7afd1f34, type: 2}
+    player: {fileID: 0}
+    horizontalInput: Player_4_Keyboard_Horizontal
+    xPos: 0
+    verticalInput: Player_4_Keyboard_Vertical
+    yPos: 0
+    buttonInput: Player_4_Keyboard_Button
+    action: 0
+    rotationInput: Player_4_Keyboard_Rotation
     rot: 0
     blocks: []
 --- !u!4 &674495064
@@ -683,7 +711,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 790840406}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -2, z: 0}
+  m_LocalPosition: {x: 0, y: -0.19, z: 0}
   m_LocalScale: {x: 5.5, y: 1, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
