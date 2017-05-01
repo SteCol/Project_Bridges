@@ -11,14 +11,22 @@ public class Player  {
     public int playerNum;
     public InputMode inputMode;
     public Material material;
+    public GameObject player;
 
     [Header("Inputs")]
+    //Position Movement
     public string horizontalInput;
     public float xPos;
     public string verticalInput;
     public float yPos;
+
+    //Interaction
     public string buttonInput;
     public bool action;
+
+    //Rotation
+    public string rotationInput;
+    public float rot;
 
     [Header("Blocks")]
     public List<BlockObj> blocks = new List<BlockObj>();
@@ -30,6 +38,8 @@ public class Player  {
         horizontalInput = "Player_" + playerNum + "_" + inputMode.ToString() + "_Horizontal";
         verticalInput = "Player_" + playerNum + "_" + inputMode.ToString() + "_Vertical";
         buttonInput = "Player_" + playerNum + "_" + inputMode.ToString() + "_Button";
+        rotationInput = "Player_" + playerNum + "_" + inputMode.ToString() + "_Rotation";
+
         material = _material;
 
     }
@@ -38,6 +48,8 @@ public class Player  {
         horizontalInput = "Player_" + playerNum + "_" + inputMode.ToString() + "_Horizontal";
         verticalInput = "Player_" + playerNum + "_" + inputMode.ToString() + "_Vertical";
         buttonInput = "Player_" + playerNum + "_" + inputMode.ToString() + "_Button";
+        rotationInput = "Player_" + playerNum + "_" + inputMode.ToString() + "_Rotation";
+
     }
 
     public void UpdateBlocks(int _amountOfBlocks) {
@@ -48,4 +60,16 @@ public class Player  {
         }
     }
 
+    public void Move() {
+        xPos = Input.GetAxis(horizontalInput);
+        yPos = Input.GetAxis(verticalInput);
+        action = Input.GetButton(buttonInput);
+        rot = Input.GetAxis(rotationInput);
+
+        if (player != null)
+        {
+            player.transform.Translate(new Vector3(xPos, 0, yPos));
+            player.transform.localEulerAngles = new Vector3(0, rot, 0);
+        }
+    }
 }
