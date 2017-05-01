@@ -11,7 +11,7 @@ public class Player  {
     public int playerNum;
     public InputMode inputMode;
     public Material material;
-    public GameObject player;
+    public GameObject playerinGame;
 
     [Header("Inputs")]
     //Position Movement
@@ -66,10 +66,10 @@ public class Player  {
         action = Input.GetButton(buttonInput);
         rot = Input.GetAxis(rotationInput);
 
-        if (player != null)
+        if (playerinGame != null)
         {
-            player.transform.Translate(new Vector3(xPos, 0, yPos));
-            player.transform.localEulerAngles = new Vector3(0, rot, 0);
+            playerinGame.transform.Translate(new Vector3(xPos, 0, yPos));
+            playerinGame.transform.localEulerAngles = new Vector3(0, rot, 0);
         }
     }
 }

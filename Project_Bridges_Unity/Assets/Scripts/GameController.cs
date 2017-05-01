@@ -31,6 +31,14 @@ public class GameController : MonoBehaviour {
 
     }
 
+    void CheckCollisions() {
+        foreach (Player p in playerSetup.players) {
+            foreach (BlockObj b in p.blocks) {
+                
+            }
+        }
+    }
+
     void StartGame() {
         Debug.Log("STARTING GENERATION");
 
@@ -61,7 +69,7 @@ public class GameController : MonoBehaviour {
             player.name = p.name;
             player.transform.parent = container.transform;
             player.GetComponent<Renderer>().material = p.material;
-            p.player = player;
+            p.playerinGame = player;
             player.transform.position = spawnPos.position;
 
 
