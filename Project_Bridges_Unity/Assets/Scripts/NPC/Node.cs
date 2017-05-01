@@ -13,4 +13,13 @@ public class Node
         gameobject = _gameobject;
         position = gameobject.transform.position;
     }
+
+    public IEnumerator MoveForward() {
+        Debug.Log(Time.deltaTime + " Node is moving");
+        yield return new WaitForSeconds(0.5f);
+        Debug.Log(Time.deltaTime + "Node finished waiting");
+
+        Debug.Log(Time.deltaTime + "Node finished moving");
+        yield return null;
+    }
 }

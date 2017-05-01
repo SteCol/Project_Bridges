@@ -8,6 +8,7 @@ TagManager:
   - NonInteractable
   - PlayerContainer
   - NPC
+  - Leader
   layers:
   - Default
   - TransparentFX
