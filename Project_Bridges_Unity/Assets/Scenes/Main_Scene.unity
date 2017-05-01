@@ -557,7 +557,7 @@ MonoBehaviour:
   generateBlocks: 0
   player: {fileID: 1598863519746890, guid: dc60cb979dce4dc4d93af1ded3d0eb48, type: 2}
   amountOfPlayers: 4
-  amountOfBlocksEach: 1
+  amountOfBlocksEach: 4
   materials:
   - {fileID: 2100000, guid: 9c35f76609502d742a834288925866a9, type: 2}
   - {fileID: 2100000, guid: 2e7d83e8b34c86e4da2d9c1747f0949c, type: 2}
@@ -587,9 +587,31 @@ MonoBehaviour:
     rot: 0
     blocks:
     - name: Block_0
-      blockPrefab: {fileID: 1679732232767276, guid: 1f5fe717bb098a54ebc24d588d27f6f1,
+      blockPrefab: {fileID: 1687559804348310, guid: 9be329cc526796f42ac2d6a722c5bb29,
         type: 2}
       inGameBlock: {fileID: 0}
+      container: {fileID: 0}
+      material: {fileID: 2100000, guid: 9c35f76609502d742a834288925866a9, type: 2}
+      grabState: 0
+    - name: Block_1
+      blockPrefab: {fileID: 1950084109766696, guid: 339a7335675c06543bcff3084777cf81,
+        type: 2}
+      inGameBlock: {fileID: 0}
+      container: {fileID: 0}
+      material: {fileID: 2100000, guid: 9c35f76609502d742a834288925866a9, type: 2}
+      grabState: 0
+    - name: Block_2
+      blockPrefab: {fileID: 1237062452285840, guid: a247172d98aa4074bbc7f57a08789ecc,
+        type: 2}
+      inGameBlock: {fileID: 0}
+      container: {fileID: 0}
+      material: {fileID: 2100000, guid: 9c35f76609502d742a834288925866a9, type: 2}
+      grabState: 0
+    - name: Block_3
+      blockPrefab: {fileID: 1011455988547030, guid: 1a12488e839de114d8528fd2f9e14c76,
+        type: 2}
+      inGameBlock: {fileID: 0}
+      container: {fileID: 0}
       material: {fileID: 2100000, guid: 9c35f76609502d742a834288925866a9, type: 2}
       grabState: 0
   - name: Player_2
@@ -607,9 +629,31 @@ MonoBehaviour:
     rot: 0
     blocks:
     - name: Block_0
-      blockPrefab: {fileID: 1687559804348310, guid: 9be329cc526796f42ac2d6a722c5bb29,
+      blockPrefab: {fileID: 1237062452285840, guid: a247172d98aa4074bbc7f57a08789ecc,
         type: 2}
       inGameBlock: {fileID: 0}
+      container: {fileID: 0}
+      material: {fileID: 2100000, guid: 2e7d83e8b34c86e4da2d9c1747f0949c, type: 2}
+      grabState: 0
+    - name: Block_1
+      blockPrefab: {fileID: 1237062452285840, guid: a247172d98aa4074bbc7f57a08789ecc,
+        type: 2}
+      inGameBlock: {fileID: 0}
+      container: {fileID: 0}
+      material: {fileID: 2100000, guid: 2e7d83e8b34c86e4da2d9c1747f0949c, type: 2}
+      grabState: 0
+    - name: Block_2
+      blockPrefab: {fileID: 1499248805858764, guid: 8808261724d59f446ae3e88fdad382a7,
+        type: 2}
+      inGameBlock: {fileID: 0}
+      container: {fileID: 0}
+      material: {fileID: 2100000, guid: 2e7d83e8b34c86e4da2d9c1747f0949c, type: 2}
+      grabState: 0
+    - name: Block_3
+      blockPrefab: {fileID: 1499248805858764, guid: 8808261724d59f446ae3e88fdad382a7,
+        type: 2}
+      inGameBlock: {fileID: 0}
+      container: {fileID: 0}
       material: {fileID: 2100000, guid: 2e7d83e8b34c86e4da2d9c1747f0949c, type: 2}
       grabState: 0
   - name: Player_3
@@ -627,9 +671,31 @@ MonoBehaviour:
     rot: 0
     blocks:
     - name: Block_0
-      blockPrefab: {fileID: 1950084109766696, guid: 339a7335675c06543bcff3084777cf81,
+      blockPrefab: {fileID: 1687559804348310, guid: 9be329cc526796f42ac2d6a722c5bb29,
         type: 2}
       inGameBlock: {fileID: 0}
+      container: {fileID: 0}
+      material: {fileID: 2100000, guid: a8d744d6e8cbc2049b4eb86ccbdb3177, type: 2}
+      grabState: 0
+    - name: Block_1
+      blockPrefab: {fileID: 1594830269598356, guid: 3f7c67bc799e9c8408ba6ac308cb1be9,
+        type: 2}
+      inGameBlock: {fileID: 0}
+      container: {fileID: 0}
+      material: {fileID: 2100000, guid: a8d744d6e8cbc2049b4eb86ccbdb3177, type: 2}
+      grabState: 0
+    - name: Block_2
+      blockPrefab: {fileID: 1499248805858764, guid: 8808261724d59f446ae3e88fdad382a7,
+        type: 2}
+      inGameBlock: {fileID: 0}
+      container: {fileID: 0}
+      material: {fileID: 2100000, guid: a8d744d6e8cbc2049b4eb86ccbdb3177, type: 2}
+      grabState: 0
+    - name: Block_3
+      blockPrefab: {fileID: 1011455988547030, guid: 1a12488e839de114d8528fd2f9e14c76,
+        type: 2}
+      inGameBlock: {fileID: 0}
+      container: {fileID: 0}
       material: {fileID: 2100000, guid: a8d744d6e8cbc2049b4eb86ccbdb3177, type: 2}
       grabState: 0
   - name: Player_4
@@ -647,9 +713,31 @@ MonoBehaviour:
     rot: 0
     blocks:
     - name: Block_0
-      blockPrefab: {fileID: 1950084109766696, guid: 339a7335675c06543bcff3084777cf81,
+      blockPrefab: {fileID: 1594830269598356, guid: 3f7c67bc799e9c8408ba6ac308cb1be9,
         type: 2}
       inGameBlock: {fileID: 0}
+      container: {fileID: 0}
+      material: {fileID: 2100000, guid: 9b8d019e006f7f749bcc4e5f7afd1f34, type: 2}
+      grabState: 0
+    - name: Block_1
+      blockPrefab: {fileID: 1011455988547030, guid: 1a12488e839de114d8528fd2f9e14c76,
+        type: 2}
+      inGameBlock: {fileID: 0}
+      container: {fileID: 0}
+      material: {fileID: 2100000, guid: 9b8d019e006f7f749bcc4e5f7afd1f34, type: 2}
+      grabState: 0
+    - name: Block_2
+      blockPrefab: {fileID: 1011455988547030, guid: 1a12488e839de114d8528fd2f9e14c76,
+        type: 2}
+      inGameBlock: {fileID: 0}
+      container: {fileID: 0}
+      material: {fileID: 2100000, guid: 9b8d019e006f7f749bcc4e5f7afd1f34, type: 2}
+      grabState: 0
+    - name: Block_3
+      blockPrefab: {fileID: 1011455988547030, guid: 1a12488e839de114d8528fd2f9e14c76,
+        type: 2}
+      inGameBlock: {fileID: 0}
+      container: {fileID: 0}
       material: {fileID: 2100000, guid: 9b8d019e006f7f749bcc4e5f7afd1f34, type: 2}
       grabState: 0
 --- !u!4 &674495064
@@ -765,7 +853,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 790840406}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.19, z: 0}
+  m_LocalPosition: {x: 0, y: -1.34, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 586452284}

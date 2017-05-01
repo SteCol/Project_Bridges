@@ -33,7 +33,7 @@ public class GameController : MonoBehaviour
 
     void UpdateSpawnPos()
     {
-        spawnPos.position = new Vector3(spawnPos.position.x + 6, spawnPos.position.y, spawnPos.position.z);
+        spawnPos.position = new Vector3(spawnPos.position.x + 3, spawnPos.position.y, spawnPos.position.z);
     }
 
     void MoveBlocks()
