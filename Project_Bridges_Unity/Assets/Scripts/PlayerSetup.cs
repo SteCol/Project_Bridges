@@ -74,7 +74,7 @@ public class PlayerSetup : MonoBehaviour
             p.UpdateBlocks(amountOfBlocksEach);
             foreach (BlockObj b in p.blocks) {
                 int i = Random.Range(0, prefabs.Count);
-                b.block = prefabs[i];
+                b.blockPrefab = prefabs[i];
             }
         }
     }

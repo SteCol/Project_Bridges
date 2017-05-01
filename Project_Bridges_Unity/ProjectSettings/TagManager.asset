@@ -6,8 +6,7 @@ TagManager:
   tags:
   - Block
   - NonInteractable
-  - WANT
-  - KEEP
+  - PlayerContainer
   layers:
   - Default
   - TransparentFX

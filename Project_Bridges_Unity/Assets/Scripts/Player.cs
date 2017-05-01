@@ -11,7 +11,7 @@ public class Player  {
     public int playerNum;
     public InputMode inputMode;
     public Material material;
-    public GameObject player;
+    public GameObject playerinGame;
 
     [Header("Inputs")]
     //Position Movement
@@ -49,7 +49,6 @@ public class Player  {
         verticalInput = "Player_" + playerNum + "_" + inputMode.ToString() + "_Vertical";
         buttonInput = "Player_" + playerNum + "_" + inputMode.ToString() + "_Button";
         rotationInput = "Player_" + playerNum + "_" + inputMode.ToString() + "_Rotation";
-
     }
 
     public void UpdateBlocks(int _amountOfBlocks) {
@@ -64,12 +63,12 @@ public class Player  {
         xPos = Input.GetAxis(horizontalInput);
         yPos = Input.GetAxis(verticalInput);
         action = Input.GetButton(buttonInput);
-        rot = Input.GetAxis(rotationInput);
+        rot = rot + Input.GetAxis(rotationInput) * 5;
 
-        if (player != null)
+        if (playerinGame != null)
         {
-            player.transform.Translate(new Vector3(xPos, 0, yPos));
-            player.transform.localEulerAngles = new Vector3(0, rot, 0);
+            playerinGame.transform.Translate(new Vector3(xPos, 0, yPos), Space.World);
+            playerinGame.transform.localEulerAngles = new Vector3(0, rot, 0);
         }
     }
 }
