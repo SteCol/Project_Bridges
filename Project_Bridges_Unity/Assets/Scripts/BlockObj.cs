@@ -35,4 +35,11 @@ public class BlockObj {
     public void MakeParent(Transform transform) {
         inGameBlock.transform.parent = transform;
     }
+
+    public void Snap()
+    {
+        Vector3 currentPos = inGameBlock.transform.position;
+        inGameBlock.transform.position = new Vector3(Mathf.Round(currentPos.x), Mathf.Round(currentPos.y), Mathf.Round(currentPos.z));
+        Debug.Log("Snapped " + name + " from " + currentPos + " to" + inGameBlock + ".");
+    }
 }

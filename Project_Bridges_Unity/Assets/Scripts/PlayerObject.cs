@@ -5,20 +5,22 @@ using UnityEngine;
 public class PlayerObject : MonoBehaviour
 {
     PlayerSetup playerSetup;
+    public bool moving;
 
     void Start()
     {
         playerSetup = GameObject.FindGameObjectWithTag("GameController").GetComponent<PlayerSetup>();
     }
 
-    void OnTriggerStay(Collider col)
+    void OnTriggerEnter(Collider col)
     {
         DoChecks(col, 1);
     }
 
     void OnTriggerExit(Collider col)
     {
-        DoChecks(col, 0);
+        if (moving == false)
+            DoChecks(col, 0);
     }
 
     void DoChecks(Collider col, int i) {

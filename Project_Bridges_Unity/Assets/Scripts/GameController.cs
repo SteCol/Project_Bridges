@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameController : MonoBehaviour {
+public class GameController : MonoBehaviour
+{
     public PlayerSetup playerSetup;
     public GameObject containerObject;
 
@@ -10,15 +11,19 @@ public class GameController : MonoBehaviour {
 
     public Transform spawnPos;
 
-    void Start () {
-        if (playerSetup == null) {
+    void Start()
+    {
+        if (playerSetup == null)
+        {
             playerSetup = this.GetComponent<PlayerSetup>();
         }
         StartGame();
     }
 
-    void FixedUpdate() {
-        if (generate) {
+    void FixedUpdate()
+    {
+        if (generate)
+        {
             StartGame();
             generate = false;
         }
@@ -26,35 +31,48 @@ public class GameController : MonoBehaviour {
         MoveBlocks();
     }
 
-    void UpdateSpawnPos() {
-        Debug.Log("Updating spawn pos from " + spawnPos);
+    void UpdateSpawnPos()
+    {
         spawnPos.position = new Vector3(spawnPos.position.x + 6, spawnPos.position.y, spawnPos.position.z);
-        Debug.Log("to " + spawnPos);
-
     }
 
-    void MoveBlocks() {
-        foreach (Player p in playerSetup.players) {
-            foreach (BlockObj b in p.blocks) {
+    void MoveBlocks()
+    {
+        foreach (Player p in playerSetup.players)
+        {
+            foreach (BlockObj b in p.blocks)
+            {
                 if (p.action == true && b.grabState == 1)
                 {
+                    b.grabState = 2;
+                }
+                else if (p.action == true && b.grabState == 2)
+                {
+                    p.playerinGame.GetComponent<PlayerObject>().moving = true;
                     b.MakeParent(p.playerinGame.transform);
                 }
-                else if (p.action == false) {
+                else if (p.action == false && b.grabState == 2)
+                {
                     b.MakeParent(b.container.transform);
+                    p.playerinGame.GetComponent<PlayerObject>().moving = false;
+                    b.Snap();
                     b.grabState = 0;
                 }
             }
         }
     }
 
-    void StartGame() {
+
+
+    void StartGame()
+    {
         Debug.Log("STARTING GENERATION");
 
         spawnPos.position = this.transform.position;
 
         //Remove all previous generations
-        foreach (GameObject g in GameObject.FindGameObjectsWithTag("PlayerContainer")) {
+        foreach (GameObject g in GameObject.FindGameObjectsWithTag("PlayerContainer"))
+        {
             Destroy(g);
         }
 
@@ -64,9 +82,8 @@ public class GameController : MonoBehaviour {
         playerContainer.tag = "PlayerContainer";
         playerContainer.transform.position = spawnPos.position;
 
-
-
-        foreach (Player p in playerSetup.players) {
+        foreach (Player p in playerSetup.players)
+        {
             //make an empty GameObject per player, to hold the player object and the blocks container.
             GameObject container = Instantiate(containerObject);
             container.name = p.name + " Container";
@@ -87,7 +104,8 @@ public class GameController : MonoBehaviour {
             blocks.name = "Blocks";
             blocks.transform.parent = container.transform;
 
-            foreach (BlockObj b in p.blocks) {
+            foreach (BlockObj b in p.blocks)
+            {
                 UpdateSpawnPos();
                 //Generate the blocks.
                 GameObject block = Instantiate(b.blockPrefab);
