@@ -13,7 +13,7 @@ public class NPC : MonoBehaviour
     public int leaderIndex;
 
     public List<GameObject> path;
-    public GameObject trailObj;
+    public List<GameObject> trailObj;
 
     void Update()
     {
@@ -87,11 +87,23 @@ public class NPC : MonoBehaviour
 
     void MoveNPC()
     {
-        trailObj.transform.position = this.transform.position;
+        //trailObj.transform.position = this.transform.position;
+        MoveTrail();
         if (path.Count > 1)
+        {
             this.transform.position = path[1].transform.position;
+            generate = true;
+        }
         else
+        {
             print("DEAD");
-        generate = true;
+        }
+    }
+
+    void MoveTrail() {
+        for (int i = trailObj.Count-1; i > 0; i--) {
+            trailObj[i].transform.position = trailObj[i - 1].transform.position;
+        }
+        trailObj[0].transform.position = this.transform.position;
     }
 }
