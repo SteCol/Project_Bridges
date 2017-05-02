@@ -4,23 +4,41 @@ using UnityEngine;
 
 public class Leader : MonoBehaviour
 {
+    [Header("Stuff")]
     public int index;
     public int fromIteration;
     public Vector3 rayOne, rayTwo;
     public List<Vector3> toGenerateFrom;
 
+    [Header("More Stuff")]
     public NPC npc;
     public GameObject copy;
 
+    [Header("Important Stuff")]
+    public List<int> ints;
+
     void Start()
     {
+        print("I GOT SPAWNED YAY");
         npc = GameObject.FindGameObjectWithTag("NPC").GetComponent<NPC>();
         DoThing();
+        CalculateInts();
     }
 
     void Update()
     {
         //DoThing();
+    }
+
+    void CalculateInts() {
+        ints.Clear();
+        string str = this.name;
+        string[] splitString = str.Split('.');
+        Debug.Log(str + " split into " + splitString.Length);
+        for (int i =1; i < splitString.Length; i++) {
+            ints.Add(int.Parse(splitString[i]));
+        }
+
     }
 
     void DoThing()
@@ -37,7 +55,7 @@ public class Leader : MonoBehaviour
             if (hit.transform.gameObject.tag == "Block" && hit.transform.gameObject.tag != "Leader")
             {
                 rayOneBool = true;
-                StartCoroutine( GenerateNew());
+                StartCoroutine(GenerateNew());
             }
         }
 
@@ -70,9 +88,9 @@ public class Leader : MonoBehaviour
                     //node.transform.parent = this.transform;
                     node.GetComponent<Leader>().index = index + 1;
                     node.GetComponent<Leader>().fromIteration = iteration;
-                    node.name = this.name + iteration;
+                    node.name = this.name + "." + iteration;
                     //node.name = "Node_" + node.GetComponent<Leader>().index.ToString("000") + "_[i: " + iteration + "]_[parent: " + index + ", " + node.GetComponent<Leader>().fromIteration + "]";
-                    npc.nodes.Add(new Node(node.gameObject, node.GetComponent<Leader>().index,iteration, index, iteration));
+                    //npc.nodes.Add(new Node(node.gameObject, node.GetComponent<Leader>().index, iteration, index, iteration));
                 }
                 else
                 {
@@ -81,5 +99,9 @@ public class Leader : MonoBehaviour
             }
             yield return new WaitForSeconds(genSpeed);
         }
+    }
+
+    void MoveNPC() {
+
     }
 }
