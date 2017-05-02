@@ -19,39 +19,23 @@ public class NPC : MonoBehaviour
     {
         if (generate)
         {
+            path.Clear();
             foreach (GameObject l in GameObject.FindGameObjectsWithTag("Leader"))
             {
                 Destroy(l);
             }
-            GameObject node = Instantiate(copy, this.transform.position, Quaternion.identity, GameObject.FindGameObjectWithTag("NPC").transform);
+            GameObject node = Instantiate(copy, transform.position, Quaternion.identity, transform);
             node.name = "Node_";
+            //node.tag = "Trail";
             StartCoroutine(iCreatePath());
             generate = false;
         }
     }
 
-    IEnumerator iCreateList()
-    {
-        print("Waiting on list");
-        yield return new WaitForSeconds(3.0f);
-        print("Wait done");
-
-        foreach (Node n in nodes)
-        {
-            foreach (Node _n in nodes)
-            {
-                if (n.parent == _n.index)
-                {
-                    print(" match between " + n.linkedNode.name + " & " + _n.linkedNode.name);
-                }
-            }
-        }
-
-    }
-
-
     IEnumerator iCreatePath()
     {
+
+
         print("Waiting on path");
         yield return new WaitForSeconds(1.0f);
         print("Wait done");
@@ -94,18 +78,20 @@ public class NPC : MonoBehaviour
         //Colour
         foreach (GameObject n in path)
         {
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(0.025f);
             n.GetComponent<MeshRenderer>().material.color = Color.green;
         }
-
+        yield return new WaitForSeconds(1.0f);
         MoveNPC();
     }
 
     void MoveNPC()
     {
         trailObj.transform.position = this.transform.position;
-        this.transform.position = path[1].transform.position;
-        path.Clear();
+        if (path.Count > 1)
+            this.transform.position = path[1].transform.position;
+        else
+            print("DEAD");
         generate = true;
     }
 }

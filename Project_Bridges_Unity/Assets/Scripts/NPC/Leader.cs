@@ -68,7 +68,9 @@ public class Leader : MonoBehaviour
     IEnumerator GenerateNew()
     {
         int iteration = 0;
-        float genSpeed = 0.0f;
+        float genSpeed = 0.01f;
+        yield return new WaitForSeconds(genSpeed );
+
         print("Starting GenerateNew()");
         foreach (Vector3 pos in toGenerateFrom)
         {
@@ -97,9 +99,7 @@ public class Leader : MonoBehaviour
                     Debug.DrawRay(rayPos, -transform.up, Color.red, genSpeed);
                 }
             }
-            yield return new WaitForSeconds(genSpeed);
+            //yield return new WaitForSeconds(genSpeed);
         }
     }
-
-    
 }
