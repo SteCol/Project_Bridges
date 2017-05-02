@@ -67,7 +67,7 @@ public class Player  {
 
         if (playerinGame != null)
         {
-            playerinGame.transform.Translate(new Vector3(xPos, 0, yPos), Space.World);
+            playerinGame.transform.Translate(new Vector3(xPos * Time.deltaTime * 25, 0, yPos * Time.deltaTime * 25), Space.World);
             playerinGame.transform.localEulerAngles = new Vector3(0, rot, 0);
         }
     }

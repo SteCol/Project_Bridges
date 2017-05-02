@@ -667,16 +667,16 @@ MonoBehaviour:
   players:
   - name: Player_1
     playerNum: 1
-    inputMode: 0
+    inputMode: 1
     material: {fileID: 2100000, guid: 9c35f76609502d742a834288925866a9, type: 2}
     playerinGame: {fileID: 0}
-    horizontalInput: Player_1_Keyboard_Horizontal
+    horizontalInput: Player_1_Mouse_Horizontal
     xPos: 0
-    verticalInput: Player_1_Keyboard_Vertical
+    verticalInput: Player_1_Mouse_Vertical
     yPos: 0
-    buttonInput: Player_1_Keyboard_Button
+    buttonInput: Player_1_Mouse_Button
     action: 0
-    rotationInput: Player_1_Keyboard_Rotation
+    rotationInput: Player_1_Mouse_Rotation
     rot: 0
     blocks:
     - name: Block_0
@@ -1231,7 +1231,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4278070459044774, guid: 1f5fe717bb098a54ebc24d588d27f6f1, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -11
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 4278070459044774, guid: 1f5fe717bb098a54ebc24d588d27f6f1, type: 2}
       propertyPath: m_LocalRotation.x
