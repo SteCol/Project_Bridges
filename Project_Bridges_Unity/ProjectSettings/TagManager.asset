@@ -9,6 +9,7 @@ TagManager:
   - PlayerContainer
   - NPC
   - Leader
+  - Trail
   layers:
   - Default
   - TransparentFX

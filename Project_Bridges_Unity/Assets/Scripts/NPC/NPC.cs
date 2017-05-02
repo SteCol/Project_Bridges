@@ -13,6 +13,7 @@ public class NPC : MonoBehaviour
     public int leaderIndex;
 
     public List<GameObject> path;
+    public GameObject trailObj;
 
     void Update()
     {
@@ -97,6 +98,13 @@ public class NPC : MonoBehaviour
             n.GetComponent<MeshRenderer>().material.color = Color.green;
         }
 
+        MoveNPC();
+    }
+
+    void MoveNPC()
+    {
+        trailObj.transform.position = this.transform.position;
+        this.transform.position = path[1].transform.position;
         path.Clear();
         generate = true;
     }

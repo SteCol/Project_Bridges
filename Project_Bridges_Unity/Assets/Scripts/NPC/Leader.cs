@@ -68,7 +68,7 @@ public class Leader : MonoBehaviour
     IEnumerator GenerateNew()
     {
         int iteration = 0;
-        float genSpeed = 0.01f;
+        float genSpeed = 0.0f;
         print("Starting GenerateNew()");
         foreach (Vector3 pos in toGenerateFrom)
         {
@@ -101,7 +101,5 @@ public class Leader : MonoBehaviour
         }
     }
 
-    void MoveNPC() {
-
-    }
+    
 }
