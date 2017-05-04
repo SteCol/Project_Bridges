@@ -19,7 +19,6 @@ public class Leader : MonoBehaviour
 
     void Start()
     {
-        print("I GOT SPAWNED YAY");
         npc = GameObject.FindGameObjectWithTag("NPC").GetComponent<NPC>();
         DoThing();
         CalculateInts();
@@ -34,7 +33,6 @@ public class Leader : MonoBehaviour
         ints.Clear();
         string str = this.name;
         string[] splitString = str.Split('.');
-        Debug.Log(str + " split into " + splitString.Length);
         for (int i =1; i < splitString.Length; i++) {
             ints.Add(int.Parse(splitString[i]));
         }
@@ -48,21 +46,21 @@ public class Leader : MonoBehaviour
         RaycastHit hit;
         Debug.DrawRay(rayOnePos, -transform.up, Color.blue);
 
-        bool rayOneBool = false;
+        //bool rayOneBool = false;
 
         if (Physics.Raycast(rayOnePos, -transform.up, out hit, 1.0f))
         {
             if (hit.transform.gameObject.tag == "Block" && hit.transform.gameObject.tag != "Leader")
             {
-                rayOneBool = true;
+                //rayOneBool = true;
                 StartCoroutine(GenerateNew());
             }
         }
 
-        if (rayOneBool)
-        {
-            print("Clear");
-        }
+        //if (rayOneBool)
+        //{
+        //    print("Clear");
+        //}
     }
 
     IEnumerator GenerateNew()
@@ -71,7 +69,7 @@ public class Leader : MonoBehaviour
         float genSpeed = 0.01f;
         yield return new WaitForSeconds(genSpeed );
 
-        print("Starting GenerateNew()");
+        //print("Starting GenerateNew()");
         foreach (Vector3 pos in toGenerateFrom)
         {
             iteration++;

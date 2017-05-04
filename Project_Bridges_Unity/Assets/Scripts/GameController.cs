@@ -11,6 +11,9 @@ public class GameController : MonoBehaviour
 
     public Transform spawnPos;
 
+    [Header("Misc")]
+    public bool lockCursor;
+
     void Start()
     {
         if (playerSetup == null)
@@ -29,6 +32,14 @@ public class GameController : MonoBehaviour
         }
 
         MoveBlocks();
+
+        if (Input.GetKeyDown(KeyCode.L))
+            lockCursor = true;
+
+        if (lockCursor) {
+            Cursor.lockState = CursorLockMode.Locked;
+            lockCursor = false;
+        }
     }
 
     void UpdateSpawnPos()

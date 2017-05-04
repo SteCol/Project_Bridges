@@ -36,9 +36,9 @@ public class NPC : MonoBehaviour
     {
 
 
-        print("Waiting on path");
+        //print("Waiting on path");
         yield return new WaitForSeconds(1.0f);
-        print("Wait done");
+        //print("Wait done");
 
         //Find the longuest path.
         GameObject furthersLeader = null;
@@ -68,7 +68,7 @@ public class NPC : MonoBehaviour
                 }
             }
 
-            print(checkValue + " - " + n.GetComponent<Leader>().ints.Count);
+            //print(checkValue + " - " + n.GetComponent<Leader>().ints.Count);
             if (checkValue == n.GetComponent<Leader>().ints.Count)
             {
                 path.Add(n);
