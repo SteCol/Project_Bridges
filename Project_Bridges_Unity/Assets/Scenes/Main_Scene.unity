@@ -663,8 +663,8 @@ MonoBehaviour:
   updateInputType: 0
   generateBlocks: 0
   player: {fileID: 1598863519746890, guid: dc60cb979dce4dc4d93af1ded3d0eb48, type: 2}
-  amountOfPlayers: 1
-  amountOfBlocksEach: 5
+  amountOfPlayers: 4
+  amountOfBlocksEach: 2
   materials:
   - {fileID: 2100000, guid: 9c35f76609502d742a834288925866a9, type: 2}
   - {fileID: 2100000, guid: 2e7d83e8b34c86e4da2d9c1747f0949c, type: 2}
@@ -685,13 +685,13 @@ MonoBehaviour:
     material: {fileID: 2100000, guid: 9c35f76609502d742a834288925866a9, type: 2}
     playerinGame: {fileID: 0}
     busy: 0
-    horizontalInput: Player_1_Keyboard_Horizontal
+    horizontalInput: Player_1_Mouse_Horizontal
     xPos: 0
-    verticalInput: Player_1_Keyboard_Vertical
+    verticalInput: Player_1_Mouse_Vertical
     yPos: 0
-    buttonInput: Player_1_Keyboard_Button
+    buttonInput: Player_1_Mouse_Button
     action: 0
-    rotationInput: Player_1_Keyboard_Rotation
+    rotationInput: Player_1_Mouse_Rotation
     rot: 0
     blocks:
     - name: Block_0
@@ -710,28 +710,97 @@ MonoBehaviour:
       material: {fileID: 2100000, guid: 9c35f76609502d742a834288925866a9, type: 2}
       grabState: 0
       occupied: 0
-    - name: Block_2
+  - name: Player_2
+    playerNum: 2
+    inputMode: 0
+    material: {fileID: 2100000, guid: 2e7d83e8b34c86e4da2d9c1747f0949c, type: 2}
+    playerinGame: {fileID: 0}
+    busy: 0
+    horizontalInput: Player_2_Keyboard_Horizontal
+    xPos: 0
+    verticalInput: Player_2_Keyboard_Vertical
+    yPos: 0
+    buttonInput: Player_2_Keyboard_Button
+    action: 0
+    rotationInput: Player_2_Keyboard_Rotation
+    rot: 0
+    blocks:
+    - name: Block_0
+      blockPrefab: {fileID: 1594830269598356, guid: 3f7c67bc799e9c8408ba6ac308cb1be9,
+        type: 2}
+      inGameBlock: {fileID: 0}
+      container: {fileID: 0}
+      material: {fileID: 2100000, guid: 2e7d83e8b34c86e4da2d9c1747f0949c, type: 2}
+      grabState: 0
+      occupied: 0
+    - name: Block_1
+      blockPrefab: {fileID: 1594830269598356, guid: 3f7c67bc799e9c8408ba6ac308cb1be9,
+        type: 2}
+      inGameBlock: {fileID: 0}
+      container: {fileID: 0}
+      material: {fileID: 2100000, guid: 2e7d83e8b34c86e4da2d9c1747f0949c, type: 2}
+      grabState: 0
+      occupied: 0
+  - name: Player_3
+    playerNum: 3
+    inputMode: 0
+    material: {fileID: 2100000, guid: a8d744d6e8cbc2049b4eb86ccbdb3177, type: 2}
+    playerinGame: {fileID: 0}
+    busy: 0
+    horizontalInput: Player_3_Keyboard_Horizontal
+    xPos: 0
+    verticalInput: Player_3_Keyboard_Vertical
+    yPos: 0
+    buttonInput: Player_3_Keyboard_Button
+    action: 0
+    rotationInput: Player_3_Keyboard_Rotation
+    rot: 0
+    blocks:
+    - name: Block_0
+      blockPrefab: {fileID: 1237062452285840, guid: a247172d98aa4074bbc7f57a08789ecc,
+        type: 2}
+      inGameBlock: {fileID: 0}
+      container: {fileID: 0}
+      material: {fileID: 2100000, guid: a8d744d6e8cbc2049b4eb86ccbdb3177, type: 2}
+      grabState: 0
+      occupied: 0
+    - name: Block_1
+      blockPrefab: {fileID: 1011455988547030, guid: 1a12488e839de114d8528fd2f9e14c76,
+        type: 2}
+      inGameBlock: {fileID: 0}
+      container: {fileID: 0}
+      material: {fileID: 2100000, guid: a8d744d6e8cbc2049b4eb86ccbdb3177, type: 2}
+      grabState: 0
+      occupied: 0
+  - name: Player_4
+    playerNum: 4
+    inputMode: 0
+    material: {fileID: 2100000, guid: 9b8d019e006f7f749bcc4e5f7afd1f34, type: 2}
+    playerinGame: {fileID: 0}
+    busy: 0
+    horizontalInput: Player_4_Keyboard_Horizontal
+    xPos: 0
+    verticalInput: Player_4_Keyboard_Vertical
+    yPos: 0
+    buttonInput: Player_4_Keyboard_Button
+    action: 0
+    rotationInput: Player_4_Keyboard_Rotation
+    rot: 0
+    blocks:
+    - name: Block_0
       blockPrefab: {fileID: 1679732232767276, guid: 1f5fe717bb098a54ebc24d588d27f6f1,
         type: 2}
       inGameBlock: {fileID: 0}
       container: {fileID: 0}
-      material: {fileID: 2100000, guid: 9c35f76609502d742a834288925866a9, type: 2}
+      material: {fileID: 2100000, guid: 9b8d019e006f7f749bcc4e5f7afd1f34, type: 2}
       grabState: 0
       occupied: 0
-    - name: Block_3
-      blockPrefab: {fileID: 1237062452285840, guid: a247172d98aa4074bbc7f57a08789ecc,
+    - name: Block_1
+      blockPrefab: {fileID: 1950084109766696, guid: 339a7335675c06543bcff3084777cf81,
         type: 2}
       inGameBlock: {fileID: 0}
       container: {fileID: 0}
-      material: {fileID: 2100000, guid: 9c35f76609502d742a834288925866a9, type: 2}
-      grabState: 0
-      occupied: 0
-    - name: Block_4
-      blockPrefab: {fileID: 1237062452285840, guid: a247172d98aa4074bbc7f57a08789ecc,
-        type: 2}
-      inGameBlock: {fileID: 0}
-      container: {fileID: 0}
-      material: {fileID: 2100000, guid: 9c35f76609502d742a834288925866a9, type: 2}
+      material: {fileID: 2100000, guid: 9b8d019e006f7f749bcc4e5f7afd1f34, type: 2}
       grabState: 0
       occupied: 0
 --- !u!4 &674495064
