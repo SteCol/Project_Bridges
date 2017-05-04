@@ -7,24 +7,24 @@ public class Player  {
 
     public string name;
 
-    [Header("Setup")]
+    [Header("Setup/Info")]
     public int playerNum;
     public InputMode inputMode;
     public Material material;
     public GameObject playerinGame;
+    public bool busy;
 
-    [Header("Inputs")]
-    //Position Movement
+    [Header("Inputs: Position Movement")]
     public string horizontalInput;
     public float xPos;
     public string verticalInput;
     public float yPos;
 
-    //Interaction
+    [Header("Inputs: Interaction")]
     public string buttonInput;
     public bool action;
 
-    //Rotation
+    [Header("Inputs: Rotation")]
     public string rotationInput;
     public float rot;
 

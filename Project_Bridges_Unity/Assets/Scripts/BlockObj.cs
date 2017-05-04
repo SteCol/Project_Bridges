@@ -13,6 +13,7 @@ public class BlockObj {
     public Material material;
 
     public int grabState;
+    public bool occupied;
 
     //Grabstates:
     //0 = grabbable, not touching a player and not being moved

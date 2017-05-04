@@ -53,21 +53,27 @@ public class GameController : MonoBehaviour
         {
             foreach (BlockObj b in p.blocks)
             {
-                if (p.action == true && b.grabState == 1)
+                if (b.occupied == false )
                 {
-                    b.grabState = 2;
-                }
-                else if (p.action == true && b.grabState == 2)
-                {
-                    p.playerinGame.GetComponent<PlayerObject>().moving = true;
-                    b.MakeParent(p.playerinGame.transform);
-                }
-                else if (p.action == false && b.grabState == 2)
-                {
-                    b.MakeParent(b.container.transform);
-                    p.playerinGame.GetComponent<PlayerObject>().moving = false;
-                    b.Snap();
-                    b.grabState = 0;
+                    if (p.action == true && b.grabState == 1)
+                    {
+                        b.grabState = 2;
+                    }
+                    else if (p.action == true && b.grabState == 2 && p.busy == false)
+                    {
+                        p.playerinGame.GetComponent<PlayerObject>().moving = true;
+                        b.MakeParent(p.playerinGame.transform);
+                        p.busy = true;
+
+                    }
+                    else if (p.action == false && b.grabState == 2)
+                    {
+                        b.MakeParent(b.container.transform);
+                        p.playerinGame.GetComponent<PlayerObject>().moving = false;
+                        b.Snap();
+                        b.grabState = 0;
+                        p.busy = false;
+                    }
                 }
             }
         }
