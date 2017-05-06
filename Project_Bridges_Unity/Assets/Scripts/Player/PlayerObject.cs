@@ -8,15 +8,16 @@ public class PlayerObject : MonoBehaviour
     public bool moving;
 
     [Header("CLaw")]
-    public SpriteRenderer sr;
+    public List<SpriteRenderer> srs;
     //public Sprite openClaw;
     //public Sprite closedClaw;
-    public Animator clawAnimator;
+    public List<Animator> clawAnimator;
 
     void Start()
     {
         playerSetup = GameObject.FindGameObjectWithTag("GameController").GetComponent<PlayerSetup>();
-        sr.color = this.gameObject.GetComponent<MeshRenderer>().material.color;
+        foreach(SpriteRenderer sr in srs)
+            sr.color = this.gameObject.GetComponent<MeshRenderer>().material.color;
     }
 
     #region Block Check
@@ -67,7 +68,8 @@ public class PlayerObject : MonoBehaviour
 
     public void AnimateClaw(bool _state)
     {
-            clawAnimator.SetBool("Grab", _state);
+        foreach (Animator a in clawAnimator)
+            a.SetBool("Grab", _state);
     }
     #endregion
 }
