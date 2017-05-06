@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
+    [Header("Setup")]
     public PlayerSetup playerSetup;
     public GameObject containerObject;
 
@@ -14,20 +15,23 @@ public class GameController : MonoBehaviour
     [Header("Misc")]
     public bool lockCursor;
 
+    [Header("Prefabs")]
+    public GameObject scaffolding;
+
     void Start()
     {
         if (playerSetup == null)
         {
             playerSetup = this.GetComponent<PlayerSetup>();
         }
-        StartGame();
+        GeneratePlayers();
     }
 
     void FixedUpdate()
     {
         if (generate)
         {
-            StartGame();
+            GeneratePlayers();
             generate = false;
         }
 
@@ -42,18 +46,22 @@ public class GameController : MonoBehaviour
         }
     }
 
-    void UpdateSpawnPos()
-    {
-        spawnPos.position = new Vector3(spawnPos.position.x + 3, spawnPos.position.y, spawnPos.position.z);
-    }
-
+    #region Block Interaction Control
     void MoveBlocks()
     {
         foreach (Player p in playerSetup.players)
         {
+            if (p.action)
+            {
+                p.playerinGame.GetComponent<PlayerObject>().AnimateClaw("Closed");
+            }
+            else {
+                p.playerinGame.GetComponent<PlayerObject>().AnimateClaw("Open");
+            }
+
             foreach (BlockObj b in p.blocks)
             {
-                if (b.occupied == false )
+                if (b.occupied == false)
                 {
                     if (p.action == true && b.grabState == 1)
                     {
@@ -64,7 +72,6 @@ public class GameController : MonoBehaviour
                         p.playerinGame.GetComponent<PlayerObject>().moving = true;
                         b.MakeParent(p.playerinGame.transform);
                         p.busy = true;
-
                     }
                     else if (p.action == false && b.grabState == 2)
                     {
@@ -79,9 +86,10 @@ public class GameController : MonoBehaviour
         }
     }
 
+    #endregion
 
-
-    void StartGame()
+    #region Generating the players
+    void GeneratePlayers()
     {
         Debug.Log("STARTING GENERATION");
 
@@ -115,6 +123,9 @@ public class GameController : MonoBehaviour
             p.playerinGame = player;
             player.transform.position = spawnPos.position;
 
+            //Give the player scaffolding.
+            GiveScaffolding(p.playerinGame);
+
 
             //Make an empty GameObject to hold the blocks.
             GameObject blocks = Instantiate(containerObject);
@@ -138,4 +149,19 @@ public class GameController : MonoBehaviour
         }
         Debug.Log("FINISHED GENERATION");
     }
+
+    void UpdateSpawnPos()
+    {
+        spawnPos.position = new Vector3(spawnPos.position.x + 3, spawnPos.position.y, spawnPos.position.z);
+    }
+
+    void GiveScaffolding(GameObject _player) {
+        GameObject scaffold = Instantiate(scaffolding);
+        scaffold.GetComponent<Matcher>().SetTarget(_player.transform);
+        scaffold.GetComponentInChildren<MeshRenderer>().material.color = _player.gameObject.GetComponent<MeshRenderer>().material.color;
+
+    }
+    #endregion
+
+
 }

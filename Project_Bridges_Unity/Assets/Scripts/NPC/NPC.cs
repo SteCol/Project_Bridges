@@ -27,15 +27,14 @@ public class NPC : MonoBehaviour
             GameObject node = Instantiate(copy, transform.position, Quaternion.identity, transform);
             node.name = "Node_";
             //node.tag = "Trail";
-            StartCoroutine(iCreatePath());
+            StartCoroutine(iGeneratePath());
             generate = false;
         }
     }
 
-    IEnumerator iCreatePath()
+    #region Generate the path
+    IEnumerator iGeneratePath()
     {
-
-
         //print("Waiting on path");
         yield return new WaitForSeconds(1.0f);
         //print("Wait done");
@@ -84,7 +83,9 @@ public class NPC : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         MoveNPC();
     }
+    #endregion
 
+    #region Move the NPC
     void MoveNPC()
     {
         //trailObj.transform.position = this.transform.position;
@@ -106,4 +107,6 @@ public class NPC : MonoBehaviour
         }
         trailObj[0].transform.position = this.transform.position;
     }
+
+    #endregion
 }

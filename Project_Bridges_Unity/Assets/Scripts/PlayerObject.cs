@@ -7,11 +7,18 @@ public class PlayerObject : MonoBehaviour
     PlayerSetup playerSetup;
     public bool moving;
 
+    [Header("CLaw")]
+    public SpriteRenderer sr;
+    public Sprite openClaw;
+    public Sprite closedClaw;
+
     void Start()
     {
         playerSetup = GameObject.FindGameObjectWithTag("GameController").GetComponent<PlayerSetup>();
+        sr.color = this.gameObject.GetComponent<MeshRenderer>().material.color;
     }
 
+    #region Block Check
     void OnTriggerEnter(Collider col)
     {
         DoChecks(col, 1);
@@ -41,4 +48,16 @@ public class PlayerObject : MonoBehaviour
             }
         }
     }
+    #endregion
+
+    #region Claw Animation
+    public void AnimateClaw(string _state)
+    {
+        if (_state == "Open")
+            sr.sprite = openClaw;
+
+        if (_state == "Closed")
+            sr.sprite = closedClaw;
+    }
+    #endregion
 }
