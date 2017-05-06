@@ -40,7 +40,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 303, y: 303, z: 303, w: 303}
-  spritePixelsToUnits: 200
+  spritePixelsToUnits: 250
   alphaUsage: 1
   alphaIsTransparency: 0
   spriteTessellationDetail: -1

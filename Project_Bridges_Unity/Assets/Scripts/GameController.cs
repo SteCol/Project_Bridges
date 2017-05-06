@@ -51,6 +51,7 @@ public class GameController : MonoBehaviour
     {
         foreach (Player p in playerSetup.players)
         {
+            /*
             if (p.action)
             {
                 p.playerinGame.GetComponent<PlayerObject>().AnimateClaw("Closed");
@@ -58,6 +59,8 @@ public class GameController : MonoBehaviour
             else {
                 p.playerinGame.GetComponent<PlayerObject>().AnimateClaw("Open");
             }
+            */
+            p.playerinGame.GetComponent<PlayerObject>().AnimateClaw(p.action);
 
             foreach (BlockObj b in p.blocks)
             {
@@ -119,13 +122,15 @@ public class GameController : MonoBehaviour
             GameObject player = Instantiate(playerSetup.player);
             player.name = p.name;
             player.transform.parent = container.transform;
-            player.GetComponent<Renderer>().material = p.material;
+            player.GetComponentInChildren<Renderer>().material = p.material;
             p.playerinGame = player;
             player.transform.position = spawnPos.position;
 
             //Give the player scaffolding.
-            GiveScaffolding(p.playerinGame);
-
+            GameObject scaffold = Instantiate(scaffolding);
+            scaffold.GetComponent<Matcher>().SetTarget(player.transform);
+            scaffold.GetComponentInChildren<MeshRenderer>().material.color = player.gameObject.GetComponent<MeshRenderer>().material.color;
+            scaffold.transform.parent = container.transform;
 
             //Make an empty GameObject to hold the blocks.
             GameObject blocks = Instantiate(containerObject);
@@ -156,9 +161,7 @@ public class GameController : MonoBehaviour
     }
 
     void GiveScaffolding(GameObject _player) {
-        GameObject scaffold = Instantiate(scaffolding);
-        scaffold.GetComponent<Matcher>().SetTarget(_player.transform);
-        scaffold.GetComponentInChildren<MeshRenderer>().material.color = _player.gameObject.GetComponent<MeshRenderer>().material.color;
+        
 
     }
     #endregion

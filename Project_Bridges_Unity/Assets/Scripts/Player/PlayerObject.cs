@@ -9,8 +9,9 @@ public class PlayerObject : MonoBehaviour
 
     [Header("CLaw")]
     public SpriteRenderer sr;
-    public Sprite openClaw;
-    public Sprite closedClaw;
+    //public Sprite openClaw;
+    //public Sprite closedClaw;
+    public Animator clawAnimator;
 
     void Start()
     {
@@ -54,10 +55,19 @@ public class PlayerObject : MonoBehaviour
     public void AnimateClaw(string _state)
     {
         if (_state == "Open")
-            sr.sprite = openClaw;
-
+        {
+            //sr.sprite = openClaw;
+            //clawAnimator.SetBool("Grab", );
+        }
         if (_state == "Closed")
-            sr.sprite = closedClaw;
+        {
+            //sr.sprite = closedClaw;
+        }
+    }
+
+    public void AnimateClaw(bool _state)
+    {
+            clawAnimator.SetBool("Grab", _state);
     }
     #endregion
 }
