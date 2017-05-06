@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class NPC : MonoBehaviour
 {
+    [Header("Setup")]
     public GameObject copy;
     public List<Node> nodes;
-
     public bool generate;
+    public float generationSpeed;
 
-    public int weight;
-    public int leaderIndex;
-
+    [Header("Trail")]
     public List<GameObject> path;
     public List<GameObject> trailObj;
 
@@ -27,15 +26,16 @@ public class NPC : MonoBehaviour
             GameObject node = Instantiate(copy, transform.position, Quaternion.identity, transform);
             node.name = "Node_";
             //node.tag = "Trail";
-            StartCoroutine(iCreatePath());
+            StartCoroutine(iGeneratePath());
             generate = false;
         }
     }
 
-    IEnumerator iCreatePath()
+    #region Generate the path
+    IEnumerator iGeneratePath()
     {
-
-
+        Debug.Log("Generating Path " + Time.time);
+        float storeTime = Time.time;
         //print("Waiting on path");
         yield return new WaitForSeconds(1.0f);
         //print("Wait done");
@@ -81,10 +81,15 @@ public class NPC : MonoBehaviour
             yield return new WaitForSeconds(0.025f);
             n.GetComponent<MeshRenderer>().material.color = Color.green;
         }
+
+        Debug.Log("Finished Generating Path " + Time.time + " [" + (Time.time - storeTime) + "].");
+
         yield return new WaitForSeconds(1.0f);
         MoveNPC();
     }
+    #endregion
 
+    #region Move the NPC
     void MoveNPC()
     {
         //trailObj.transform.position = this.transform.position;
@@ -106,4 +111,6 @@ public class NPC : MonoBehaviour
         }
         trailObj[0].transform.position = this.transform.position;
     }
+
+    #endregion
 }
