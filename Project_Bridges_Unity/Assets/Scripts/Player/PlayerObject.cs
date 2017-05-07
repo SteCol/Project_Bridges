@@ -37,7 +37,7 @@ public class PlayerObject : MonoBehaviour
         {
             foreach (Player p in playerSetup.players)
             {
-                if (p.playerinGame == this.gameObject)
+                if (p.inGamePlayer == this.gameObject)
                 {
                     foreach (BlockObj b in p.blocks)
                     {

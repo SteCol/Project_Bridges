@@ -17,6 +17,8 @@ public class PlayerSetup : MonoBehaviour
     public int amountOfPlayers;
     public int amountOfBlocksEach;
     public List<Material> materials;
+    public List<Material> outlines;
+
     public List<GameObject> prefabs;
 
     [Header("Players")]
@@ -51,7 +53,7 @@ public class PlayerSetup : MonoBehaviour
         players.Clear();
         for (int i = 0; i < amountOfPlayers; i++)
         {
-            players.Add(new Player(i + 1, InputMode.Keyboard, materials[i]));
+            players.Add(new Player(i + 1, InputMode.Keyboard, materials[i], outlines[i]));
             players[i].UpdateBlocks(amountOfBlocksEach);
             AssignBlocks();
         }

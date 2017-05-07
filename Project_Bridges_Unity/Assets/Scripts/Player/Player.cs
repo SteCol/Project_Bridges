@@ -11,7 +11,8 @@ public class Player  {
     public int playerNum;
     public InputMode inputMode;
     public Material material;
-    public GameObject playerinGame;
+    public Material outline;
+    public GameObject inGamePlayer;
     public bool busy;
 
     [Header("Inputs: Position Movement")]
@@ -44,6 +45,21 @@ public class Player  {
 
     }
 
+    public Player(int _playerInt, InputMode _inputMode, Material _material, Material _outline)
+    {
+        name = "Player_" + _playerInt;
+        playerNum = _playerInt;
+        inputMode = _inputMode;
+        horizontalInput = "Player_" + playerNum + "_" + inputMode.ToString() + "_Horizontal";
+        verticalInput = "Player_" + playerNum + "_" + inputMode.ToString() + "_Vertical";
+        buttonInput = "Player_" + playerNum + "_" + inputMode.ToString() + "_Button";
+        rotationInput = "Player_" + playerNum + "_" + inputMode.ToString() + "_Rotation";
+
+        material = _material;
+        outline = _outline;
+
+    }
+
     public void UpdateInputMode(InputMode _inputMode) {
         horizontalInput = "Player_" + playerNum + "_" + inputMode.ToString() + "_Horizontal";
         verticalInput = "Player_" + playerNum + "_" + inputMode.ToString() + "_Vertical";
@@ -55,7 +71,7 @@ public class Player  {
         blocks.Clear();
         for (int i = 0; i < _amountOfBlocks; i++)
         {
-            blocks.Add(new BlockObj("Block_" + i, material));
+            blocks.Add(new BlockObj("Block_" + i, material, outline));
         }
     }
 
@@ -65,10 +81,10 @@ public class Player  {
         action = Input.GetButton(buttonInput);
         rot = rot + Input.GetAxis(rotationInput) * 5;
 
-        if (playerinGame != null)
+        if (inGamePlayer != null)
         {
-            playerinGame.transform.Translate(new Vector3(xPos * Time.deltaTime * 25, 0, yPos * Time.deltaTime * 25), Space.World);
-            playerinGame.transform.localEulerAngles = new Vector3(0, rot, 0);
+            inGamePlayer.transform.Translate(new Vector3(xPos * Time.deltaTime * 25, 0, yPos * Time.deltaTime * 25), Space.World);
+            inGamePlayer.transform.localEulerAngles = new Vector3(0, rot, 0);
         }
     }
 }

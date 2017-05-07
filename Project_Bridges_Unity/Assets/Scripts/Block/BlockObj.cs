@@ -11,6 +11,7 @@ public class BlockObj {
     public GameObject container;
 
     public Material material;
+    public Material outline;
 
     public int grabState;
     public bool occupied;
@@ -24,6 +25,13 @@ public class BlockObj {
     public BlockObj(string _name, Material _material) {
         name = _name;
         material = _material;
+    }
+
+    public BlockObj(string _name, Material _material, Material _outline)
+    {
+        name = _name;
+        material = _material;
+        outline = _outline;
     }
 
     public BlockObj(string _name, Material _material, GameObject _prefab)
