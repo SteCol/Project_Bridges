@@ -5,15 +5,34 @@ using UnityEngine;
 public class NPC : MonoBehaviour
 {
     [Header("Setup")]
+    public GameController gameController;
     public GameObject copy;
     public List<Node> nodes;
     public bool generate;
     public float generationSpeed;
     public float spawnDepth;
+    public List<GameObject> toRespawn;
+    public List<Vector3> spawnPoint;
 
     [Header("Trail")]
     public List<GameObject> path;
     public List<GameObject> trailObj;
+
+    void Start() {
+        SetSpawnPoints();
+        if (gameController == null)
+            gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+    }
+
+    void SetSpawnPoints()
+    {
+        spawnPoint.Add(this.transform.position);
+        toRespawn.Add(this.gameObject);
+        foreach (GameObject t in trailObj) {
+            spawnPoint.Add(t.transform.position);
+            toRespawn.Add(t);
+        }
+    }
 
     void Update()
     {
@@ -112,7 +131,9 @@ public class NPC : MonoBehaviour
         }
         else
         {
+            //No path means DEATH
             print("DEAD");
+            Respawn();
         }
     }
 
@@ -123,6 +144,22 @@ public class NPC : MonoBehaviour
             trailObj[i].transform.position = trailObj[i - 1].transform.position;
         }
         trailObj[0].transform.position = this.transform.position;
+    }
+
+    void Respawn() {
+        if (gameController.currentLives > 0)
+        {
+            gameController.UpdateLives(-1);
+            for (int i = 0; i < toRespawn.Count; i++)
+            {
+                toRespawn[i].transform.position = spawnPoint[i];
+            }
+            generate = true;
+        }
+        else {
+            gameController.GameOver();
+            print("GAME OVER");
+        }
     }
 
     #endregion

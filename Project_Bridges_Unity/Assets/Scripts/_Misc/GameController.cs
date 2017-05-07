@@ -1,16 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
     [Header("Setup")]
     public PlayerSetup playerSetup;
     public GameObject containerObject;
-
     public bool generate;
-
     public Transform spawnPos;
+
+    [Header("Setup")]
+    public int startLives;
+    public int currentLives;
+    public Text livesText;
 
     [Header("Misc")]
     public bool lockCursor;
@@ -25,6 +29,9 @@ public class GameController : MonoBehaviour
             playerSetup = this.GetComponent<PlayerSetup>();
         }
         GeneratePlayers();
+
+        currentLives = startLives;
+        UpdateLives(0);
     }
 
     void FixedUpdate()
@@ -180,6 +187,17 @@ public class GameController : MonoBehaviour
     void GiveScaffolding(GameObject _player) {
         
 
+    }
+    #endregion
+
+    #region Lives management
+    public void UpdateLives(int i) {
+        currentLives = currentLives + i;
+        livesText.text = " Lives Left: " + currentLives.ToString();
+    }
+
+    public void GameOver() {
+        livesText.text = "Game Over";
     }
     #endregion
 }
