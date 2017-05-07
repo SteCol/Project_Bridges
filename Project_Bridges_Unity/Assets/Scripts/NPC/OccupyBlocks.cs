@@ -38,9 +38,12 @@ public class OccupyBlocks : MonoBehaviour
                 foreach (Player p in playerSetup.players)
                     foreach (BlockObj b in p.blocks)
                         if (b.inGameBlock == hit.transform.gameObject)
+                        {
                             b.occupied = true;
-                        else
+                        }
+                        else {
                             b.occupied = false;
+                        }
             }
         }
     }
