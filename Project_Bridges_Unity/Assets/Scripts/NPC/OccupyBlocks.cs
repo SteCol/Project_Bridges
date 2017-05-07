@@ -30,8 +30,9 @@ public class OccupyBlocks : MonoBehaviour
         Debug.DrawRay(transform.position, -transform.up, Color.blue);
 
         //bool rayOneBool = false;
+        Vector3 modPos = new Vector3(transform.position.x, transform.position.y - 0.5f, transform.position.z);
 
-        if (Physics.Raycast(transform.position, -transform.up, out hit, 1.0f))
+        if (Physics.Raycast(modPos, -transform.up, out hit, 1.0f))
         {
             if (hit.transform.gameObject.tag == "Block")
             {

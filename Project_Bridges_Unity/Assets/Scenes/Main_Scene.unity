@@ -428,7 +428,7 @@ MonoBehaviour:
   nodes: []
   generate: 1
   generationSpeed: 0
-  spawnDepth: 0
+  spawnDepth: 0.5
   path: []
   trailObj:
   - {fileID: 795133523}
