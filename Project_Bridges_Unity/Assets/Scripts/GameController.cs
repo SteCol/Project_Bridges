@@ -60,7 +60,7 @@ public class GameController : MonoBehaviour
                 p.playerinGame.GetComponent<PlayerObject>().AnimateClaw("Open");
             }
             */
-            p.playerinGame.GetComponent<PlayerObject>().AnimateClaw(p.action);
+            p.inGamePlayer.GetComponent<PlayerObject>().AnimateClaw(p.action);
 
             foreach (BlockObj b in p.blocks)
             {
@@ -72,17 +72,21 @@ public class GameController : MonoBehaviour
                     }
                     else if (p.action == true && b.grabState == 2 && p.busy == false)
                     {
-                        p.playerinGame.GetComponent<PlayerObject>().moving = true;
-                        b.MakeParent(p.playerinGame.transform);
+                        p.inGamePlayer.GetComponent<PlayerObject>().moving = true;
+                        b.MakeParent(p.inGamePlayer.transform);
+                        b.inGameBlock.GetComponent<MeshRenderer>().materials[1].SetFloat("_Thickness", 20);
                         p.busy = true;
                     }
                     else if (p.action == false && b.grabState == 2)
                     {
                         b.MakeParent(b.container.transform);
-                        p.playerinGame.GetComponent<PlayerObject>().moving = false;
+                        p.inGamePlayer.GetComponent<PlayerObject>().moving = false;
                         b.Snap();
                         b.grabState = 0;
                         p.busy = false;
+
+                        b.inGameBlock.GetComponent<MeshRenderer>().materials[1].SetFloat("_Thickness", 0);
+
                     }
                 }
             }
@@ -123,7 +127,7 @@ public class GameController : MonoBehaviour
             player.name = p.name;
             player.transform.parent = container.transform;
             player.GetComponentInChildren<Renderer>().material = p.material;
-            p.playerinGame = player;
+            p.inGamePlayer = player;
             player.transform.position = spawnPos.position;
 
             //Give the player scaffolding.
@@ -146,7 +150,13 @@ public class GameController : MonoBehaviour
                 block.transform.parent = blocks.transform;
                 b.container = blocks;
 
-                block.GetComponent<Renderer>().material = b.material;
+                //Making an array to set the MeshRenderer materials to.
+                Material[] blockMaterials = new Material[2]; 
+                blockMaterials[0] = b.material;
+                blockMaterials[1] = b.outline;
+
+                block.GetComponent<Renderer>().materials = blockMaterials;
+
                 b.inGameBlock = block;
                 block.transform.position = spawnPos.position;
 
@@ -165,6 +175,4 @@ public class GameController : MonoBehaviour
 
     }
     #endregion
-
-
 }

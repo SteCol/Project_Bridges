@@ -9,6 +9,7 @@ public class NPC : MonoBehaviour
     public List<Node> nodes;
     public bool generate;
     public float generationSpeed;
+    public float spawnDepth;
 
     [Header("Trail")]
     public List<GameObject> path;
@@ -18,20 +19,27 @@ public class NPC : MonoBehaviour
     {
         if (generate)
         {
-            path.Clear();
-            foreach (GameObject l in GameObject.FindGameObjectsWithTag("Leader"))
-            {
-                Destroy(l);
-            }
-            GameObject node = Instantiate(copy, transform.position, Quaternion.identity, transform);
-            node.name = "Node_";
-            //node.tag = "Trail";
-            StartCoroutine(iGeneratePath());
-            generate = false;
+            SpawnFirstNode();
         }
     }
 
     #region Generate the path
+    void SpawnFirstNode()
+    {
+        path.Clear();
+        foreach (GameObject l in GameObject.FindGameObjectsWithTag("Leader"))
+        {
+            Destroy(l);
+        }
+
+        Vector3 spawnPos = new Vector3 (transform.position.x, transform.position.y - spawnDepth, transform.position.z);
+        GameObject node = Instantiate(copy, spawnPos, Quaternion.identity, transform);
+        node.name = "Node_";
+        //node.tag = "Trail";
+        StartCoroutine(iGeneratePath());
+        generate = false;
+    }
+
     IEnumerator iGeneratePath()
     {
         Debug.Log("Generating Path " + Time.time);
@@ -96,7 +104,10 @@ public class NPC : MonoBehaviour
         MoveTrail();
         if (path.Count > 1)
         {
-            this.transform.position = path[1].transform.position;
+            Vector3 nodePos = path[1].transform.position;
+            Vector3 spawnPos = new Vector3(nodePos.x, nodePos.y + spawnDepth, nodePos.z);
+            this.transform.position = spawnPos;
+
             generate = true;
         }
         else
@@ -105,8 +116,10 @@ public class NPC : MonoBehaviour
         }
     }
 
-    void MoveTrail() {
-        for (int i = trailObj.Count-1; i > 0; i--) {
+    void MoveTrail()
+    {
+        for (int i = trailObj.Count - 1; i > 0; i--)
+        {
             trailObj[i].transform.position = trailObj[i - 1].transform.position;
         }
         trailObj[0].transform.position = this.transform.position;
