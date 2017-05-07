@@ -428,7 +428,7 @@ MonoBehaviour:
   nodes: []
   generate: 1
   generationSpeed: 0
-  spawnDepth: 0
+  spawnDepth: 0.5
   path: []
   trailObj:
   - {fileID: 795133523}
@@ -1002,21 +1002,25 @@ MonoBehaviour:
     rot: 0
     blocks:
     - name: Block_0
+      blockPrefab: {fileID: 1499248805858764, guid: 8808261724d59f446ae3e88fdad382a7,
+        type: 2}
+      inGameBlock: {fileID: 0}
+      container: {fileID: 0}
+      material: {fileID: 2100000, guid: 9c35f76609502d742a834288925866a9, type: 2}
+      materialColour: {r: 0, g: 0.528, b: 1, a: 1}
+      outline: {fileID: 2100000, guid: ea1737d72d4039a47a7760161ba1fddc, type: 2}
+      outlineColour: {r: 0, g: 1, b: 1, a: 1}
+      grabState: 0
+      occupied: 0
+    - name: Block_1
       blockPrefab: {fileID: 1011455988547030, guid: 1a12488e839de114d8528fd2f9e14c76,
         type: 2}
       inGameBlock: {fileID: 0}
       container: {fileID: 0}
       material: {fileID: 2100000, guid: 9c35f76609502d742a834288925866a9, type: 2}
+      materialColour: {r: 0, g: 0.528, b: 1, a: 1}
       outline: {fileID: 2100000, guid: ea1737d72d4039a47a7760161ba1fddc, type: 2}
-      grabState: 0
-      occupied: 0
-    - name: Block_1
-      blockPrefab: {fileID: 1237062452285840, guid: a247172d98aa4074bbc7f57a08789ecc,
-        type: 2}
-      inGameBlock: {fileID: 0}
-      container: {fileID: 0}
-      material: {fileID: 2100000, guid: 9c35f76609502d742a834288925866a9, type: 2}
-      outline: {fileID: 2100000, guid: ea1737d72d4039a47a7760161ba1fddc, type: 2}
+      outlineColour: {r: 0, g: 1, b: 1, a: 1}
       grabState: 0
       occupied: 0
   - name: Player_2
@@ -1036,21 +1040,25 @@ MonoBehaviour:
     rot: 0
     blocks:
     - name: Block_0
+      blockPrefab: {fileID: 1950084109766696, guid: 339a7335675c06543bcff3084777cf81,
+        type: 2}
+      inGameBlock: {fileID: 0}
+      container: {fileID: 0}
+      material: {fileID: 2100000, guid: 2e7d83e8b34c86e4da2d9c1747f0949c, type: 2}
+      materialColour: {r: 0, g: 1, b: 0, a: 1}
+      outline: {fileID: 2100000, guid: 2d27a81de0066884cb6b3981aad6e8c3, type: 2}
+      outlineColour: {r: 0.5514706, g: 1, b: 0.5514706, a: 1}
+      grabState: 0
+      occupied: 0
+    - name: Block_1
       blockPrefab: {fileID: 1679732232767276, guid: 1f5fe717bb098a54ebc24d588d27f6f1,
         type: 2}
       inGameBlock: {fileID: 0}
       container: {fileID: 0}
       material: {fileID: 2100000, guid: 2e7d83e8b34c86e4da2d9c1747f0949c, type: 2}
+      materialColour: {r: 0, g: 1, b: 0, a: 1}
       outline: {fileID: 2100000, guid: 2d27a81de0066884cb6b3981aad6e8c3, type: 2}
-      grabState: 0
-      occupied: 0
-    - name: Block_1
-      blockPrefab: {fileID: 1237062452285840, guid: a247172d98aa4074bbc7f57a08789ecc,
-        type: 2}
-      inGameBlock: {fileID: 0}
-      container: {fileID: 0}
-      material: {fileID: 2100000, guid: 2e7d83e8b34c86e4da2d9c1747f0949c, type: 2}
-      outline: {fileID: 2100000, guid: 2d27a81de0066884cb6b3981aad6e8c3, type: 2}
+      outlineColour: {r: 0.5514706, g: 1, b: 0.5514706, a: 1}
       grabState: 0
       occupied: 0
   - name: Player_3
@@ -1070,21 +1078,25 @@ MonoBehaviour:
     rot: 0
     blocks:
     - name: Block_0
-      blockPrefab: {fileID: 1011455988547030, guid: 1a12488e839de114d8528fd2f9e14c76,
-        type: 2}
-      inGameBlock: {fileID: 0}
-      container: {fileID: 0}
-      material: {fileID: 2100000, guid: a8d744d6e8cbc2049b4eb86ccbdb3177, type: 2}
-      outline: {fileID: 2100000, guid: 0a303080a4893a2429612b753c345605, type: 2}
-      grabState: 0
-      occupied: 0
-    - name: Block_1
       blockPrefab: {fileID: 1499248805858764, guid: 8808261724d59f446ae3e88fdad382a7,
         type: 2}
       inGameBlock: {fileID: 0}
       container: {fileID: 0}
       material: {fileID: 2100000, guid: a8d744d6e8cbc2049b4eb86ccbdb3177, type: 2}
+      materialColour: {r: 1, g: 0, b: 0, a: 1}
       outline: {fileID: 2100000, guid: 0a303080a4893a2429612b753c345605, type: 2}
+      outlineColour: {r: 1, g: 0.53676474, b: 0.53676474, a: 1}
+      grabState: 0
+      occupied: 0
+    - name: Block_1
+      blockPrefab: {fileID: 1687559804348310, guid: 9be329cc526796f42ac2d6a722c5bb29,
+        type: 2}
+      inGameBlock: {fileID: 0}
+      container: {fileID: 0}
+      material: {fileID: 2100000, guid: a8d744d6e8cbc2049b4eb86ccbdb3177, type: 2}
+      materialColour: {r: 1, g: 0, b: 0, a: 1}
+      outline: {fileID: 2100000, guid: 0a303080a4893a2429612b753c345605, type: 2}
+      outlineColour: {r: 1, g: 0.53676474, b: 0.53676474, a: 1}
       grabState: 0
       occupied: 0
   - name: Player_4
@@ -1104,21 +1116,25 @@ MonoBehaviour:
     rot: 0
     blocks:
     - name: Block_0
-      blockPrefab: {fileID: 1237062452285840, guid: a247172d98aa4074bbc7f57a08789ecc,
+      blockPrefab: {fileID: 1011455988547030, guid: 1a12488e839de114d8528fd2f9e14c76,
         type: 2}
       inGameBlock: {fileID: 0}
       container: {fileID: 0}
       material: {fileID: 2100000, guid: 9b8d019e006f7f749bcc4e5f7afd1f34, type: 2}
+      materialColour: {r: 1, g: 0.847, b: 0, a: 1}
       outline: {fileID: 2100000, guid: d57d266b4a8612d4885f3cfffa7cf937, type: 2}
+      outlineColour: {r: 1, g: 1, b: 0.472, a: 1}
       grabState: 0
       occupied: 0
     - name: Block_1
-      blockPrefab: {fileID: 1499248805858764, guid: 8808261724d59f446ae3e88fdad382a7,
+      blockPrefab: {fileID: 1594830269598356, guid: 3f7c67bc799e9c8408ba6ac308cb1be9,
         type: 2}
       inGameBlock: {fileID: 0}
       container: {fileID: 0}
       material: {fileID: 2100000, guid: 9b8d019e006f7f749bcc4e5f7afd1f34, type: 2}
+      materialColour: {r: 1, g: 0.847, b: 0, a: 1}
       outline: {fileID: 2100000, guid: d57d266b4a8612d4885f3cfffa7cf937, type: 2}
+      outlineColour: {r: 1, g: 1, b: 0.472, a: 1}
       grabState: 0
       occupied: 0
 --- !u!4 &674495064
