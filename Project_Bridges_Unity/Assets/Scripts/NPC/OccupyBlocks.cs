@@ -36,7 +36,9 @@ public class OccupyBlocks : MonoBehaviour
             if (hit.transform.gameObject.tag == "Block")
             {
                 foreach (Player p in playerSetup.players)
+                {
                     foreach (BlockObj b in p.blocks)
+                    {
                         if (b.inGameBlock == hit.transform.gameObject)
                         {
                             b.occupied = true;
@@ -44,6 +46,9 @@ public class OccupyBlocks : MonoBehaviour
                         else {
                             b.occupied = false;
                         }
+                        b.UpdateOutline();
+                    }
+                }
             }
         }
     }

@@ -64,18 +64,16 @@ public class GameController : MonoBehaviour
 
             foreach (BlockObj b in p.blocks)
             {
-                Material outline = b.inGameBlock.GetComponent<MeshRenderer>().materials[1];
                 if (b.occupied == false)
                 {
-
                     if (p.action == false && b.grabState == 1)
                     {
-                        outline.SetFloat("_Thickness", 10);
+                        b.UpdateOutline();
                     }
                     else if (p.action == true && b.grabState == 1)
                     {
                         b.grabState = 2;
-                        outline.SetFloat("_Thickness", 20);
+                        b.UpdateOutline();
                     }
                     else if (p.action == true && b.grabState == 2 && p.busy == false)
                     {
@@ -90,12 +88,12 @@ public class GameController : MonoBehaviour
                         b.Snap();
                         b.grabState = 0;
                         p.busy = false;
-                        outline.SetFloat("_Thickness", 0);
+                        b.UpdateOutline();
 
                     }
                     else if (p.action == false && b.grabState == 0)
                     {
-                        outline.SetFloat("_Thickness", 0);
+                        b.UpdateOutline();
                     }
                 }
             }

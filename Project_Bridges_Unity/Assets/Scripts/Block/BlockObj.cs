@@ -11,7 +11,10 @@ public class BlockObj {
     public GameObject container;
 
     public Material material;
+    public Color materialColour;
     public Material outline;
+    public Color outlineColour;
+
 
     public int grabState;
     public bool occupied;
@@ -32,6 +35,8 @@ public class BlockObj {
         name = _name;
         material = _material;
         outline = _outline;
+        materialColour = _material.color;
+        outlineColour = _outline.color;
     }
 
     public BlockObj(string _name, Material _material, GameObject _prefab)
@@ -50,5 +55,36 @@ public class BlockObj {
         Vector3 currentPos = inGameBlock.transform.position;
         inGameBlock.transform.position = new Vector3(Mathf.Round(currentPos.x), Mathf.Round(currentPos.y), Mathf.Round(currentPos.z));
         Debug.Log("Snapped " + name + " from " + currentPos + " to" + inGameBlock.transform.position + ".");
+    }
+
+    public void UpdateOutline() {
+
+        Material outline = inGameBlock.GetComponent<MeshRenderer>().materials[1];
+        
+
+
+        if (occupied)
+        {
+            outline.color = Color.red;
+            outline.SetFloat("_Thickness", 20);
+        }
+        else {
+            outline.color = outlineColour;
+
+            if (grabState == 0)
+            {
+                outline.SetFloat("_Thickness", 0);
+            }
+
+            if (grabState == 1)
+            {
+                outline.SetFloat("_Thickness", 10);
+            }
+
+            if (grabState == 2)
+            {
+                outline.SetFloat("_Thickness", 20);
+            }
+        }
     }
 }
