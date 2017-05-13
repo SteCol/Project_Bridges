@@ -48,7 +48,7 @@ public class PlayerSetup : MonoBehaviour
         }
     }
 
-    void GeneratePlayers()
+    public void GeneratePlayers()
     {
         players.Clear();
         for (int i = 0; i < amountOfPlayers; i++)
