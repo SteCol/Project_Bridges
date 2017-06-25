@@ -3,6 +3,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [ExecuteInEditMode]
 public class PlayerSetup : MonoBehaviour
@@ -11,6 +12,9 @@ public class PlayerSetup : MonoBehaviour
     public bool generatePlayers;
     public bool updateInputType;
     public bool generateBlocks;
+
+    [Header("UI Controls")]
+    public Slider amountOfBlocksSlider;
 
     [Header("Setup Parameters")]
     public GameObject player;
@@ -26,6 +30,9 @@ public class PlayerSetup : MonoBehaviour
 
     void Update()
     {
+
+        amountOfBlocksEach =  (int)amountOfBlocksSlider.value;
+
         if (generatePlayers)
         {
             GeneratePlayers();

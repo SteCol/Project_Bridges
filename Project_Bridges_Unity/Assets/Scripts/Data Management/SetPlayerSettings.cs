@@ -1,12 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 [ExecuteInEditMode]
 public class SetPlayerSettings : MonoBehaviour
 {
+
+    [Header("Setup")]
     public _SaveLoad saveLoad;
     public PlayerSetup playerSetup;
+
+    [Header("Controls")]
     private _Players playersClass;
 
     void Update()
