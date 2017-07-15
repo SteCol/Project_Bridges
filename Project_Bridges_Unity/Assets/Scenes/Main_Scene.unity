@@ -943,6 +943,12 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 368387503}
+--- !u!114 &381617310 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114298085746713318, guid: 67d10f9a0f8892541b8d20ceccd8e1b4,
+    type: 2}
+  m_PrefabInternal: {fileID: 937646038}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &430233307
 GameObject:
   m_ObjectHideFlags: 0
@@ -1678,7 +1684,7 @@ MonoBehaviour:
   generateBlocks: 0
   amountOfBlocksSlider: {fileID: 1090318103}
   player: {fileID: 1598863519746890, guid: dc60cb979dce4dc4d93af1ded3d0eb48, type: 2}
-  amountOfPlayers: 3
+  amountOfPlayers: 4
   amountOfBlocksEach: 0
   materials:
   - {fileID: 2100000, guid: 9c35f76609502d742a834288925866a9, type: 2}
@@ -1714,29 +1720,7 @@ MonoBehaviour:
     action: 0
     rotationInput: Player_1_Keyboard_Rotation
     rot: 0
-    blocks:
-    - name: Block_0
-      blockPrefab: {fileID: 1950084109766696, guid: 339a7335675c06543bcff3084777cf81,
-        type: 2}
-      inGameBlock: {fileID: 0}
-      container: {fileID: 0}
-      material: {fileID: 2100000, guid: 9c35f76609502d742a834288925866a9, type: 2}
-      materialColour: {r: 0, g: 0.528, b: 1, a: 1}
-      outline: {fileID: 2100000, guid: ea1737d72d4039a47a7760161ba1fddc, type: 2}
-      outlineColour: {r: 0, g: 1, b: 1, a: 1}
-      grabState: 0
-      occupied: 0
-    - name: Block_1
-      blockPrefab: {fileID: 1679732232767276, guid: 1f5fe717bb098a54ebc24d588d27f6f1,
-        type: 2}
-      inGameBlock: {fileID: 0}
-      container: {fileID: 0}
-      material: {fileID: 2100000, guid: 9c35f76609502d742a834288925866a9, type: 2}
-      materialColour: {r: 0, g: 0.528, b: 1, a: 1}
-      outline: {fileID: 2100000, guid: ea1737d72d4039a47a7760161ba1fddc, type: 2}
-      outlineColour: {r: 0, g: 1, b: 1, a: 1}
-      grabState: 0
-      occupied: 0
+    blocks: []
   - name: Player_2
     playerNum: 2
     inputMode: 0
@@ -1752,29 +1736,7 @@ MonoBehaviour:
     action: 0
     rotationInput: Player_2_Keyboard_Rotation
     rot: 0
-    blocks:
-    - name: Block_0
-      blockPrefab: {fileID: 1594830269598356, guid: 3f7c67bc799e9c8408ba6ac308cb1be9,
-        type: 2}
-      inGameBlock: {fileID: 0}
-      container: {fileID: 0}
-      material: {fileID: 2100000, guid: 2e7d83e8b34c86e4da2d9c1747f0949c, type: 2}
-      materialColour: {r: 0, g: 1, b: 0, a: 1}
-      outline: {fileID: 2100000, guid: 2d27a81de0066884cb6b3981aad6e8c3, type: 2}
-      outlineColour: {r: 0.5514706, g: 1, b: 0.5514706, a: 1}
-      grabState: 0
-      occupied: 0
-    - name: Block_1
-      blockPrefab: {fileID: 1687559804348310, guid: 9be329cc526796f42ac2d6a722c5bb29,
-        type: 2}
-      inGameBlock: {fileID: 0}
-      container: {fileID: 0}
-      material: {fileID: 2100000, guid: 2e7d83e8b34c86e4da2d9c1747f0949c, type: 2}
-      materialColour: {r: 0, g: 1, b: 0, a: 1}
-      outline: {fileID: 2100000, guid: 2d27a81de0066884cb6b3981aad6e8c3, type: 2}
-      outlineColour: {r: 0.5514706, g: 1, b: 0.5514706, a: 1}
-      grabState: 0
-      occupied: 0
+    blocks: []
   - name: Player_3
     playerNum: 3
     inputMode: 0
@@ -1790,29 +1752,23 @@ MonoBehaviour:
     action: 0
     rotationInput: Player_3_Keyboard_Rotation
     rot: 0
-    blocks:
-    - name: Block_0
-      blockPrefab: {fileID: 1499248805858764, guid: 8808261724d59f446ae3e88fdad382a7,
-        type: 2}
-      inGameBlock: {fileID: 0}
-      container: {fileID: 0}
-      material: {fileID: 2100000, guid: a8d744d6e8cbc2049b4eb86ccbdb3177, type: 2}
-      materialColour: {r: 1, g: 0, b: 0, a: 1}
-      outline: {fileID: 2100000, guid: 0a303080a4893a2429612b753c345605, type: 2}
-      outlineColour: {r: 1, g: 0.53676474, b: 0.53676474, a: 1}
-      grabState: 0
-      occupied: 0
-    - name: Block_1
-      blockPrefab: {fileID: 1237062452285840, guid: a247172d98aa4074bbc7f57a08789ecc,
-        type: 2}
-      inGameBlock: {fileID: 0}
-      container: {fileID: 0}
-      material: {fileID: 2100000, guid: a8d744d6e8cbc2049b4eb86ccbdb3177, type: 2}
-      materialColour: {r: 1, g: 0, b: 0, a: 1}
-      outline: {fileID: 2100000, guid: 0a303080a4893a2429612b753c345605, type: 2}
-      outlineColour: {r: 1, g: 0.53676474, b: 0.53676474, a: 1}
-      grabState: 0
-      occupied: 0
+    blocks: []
+  - name: Player_4
+    playerNum: 4
+    inputMode: 0
+    material: {fileID: 2100000, guid: 9b8d019e006f7f749bcc4e5f7afd1f34, type: 2}
+    outline: {fileID: 2100000, guid: d57d266b4a8612d4885f3cfffa7cf937, type: 2}
+    inGamePlayer: {fileID: 0}
+    busy: 0
+    horizontalInput: Player_4_Keyboard_Horizontal
+    xPos: 0
+    verticalInput: Player_4_Keyboard_Vertical
+    yPos: 0
+    buttonInput: Player_4_Keyboard_Button
+    action: 0
+    rotationInput: Player_4_Keyboard_Rotation
+    rot: 0
+    blocks: []
 --- !u!4 &674495064
 Transform:
   m_ObjectHideFlags: 0
@@ -3252,6 +3208,12 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 870219301}
+--- !u!114 &908676674 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114298085746713318, guid: 67d10f9a0f8892541b8d20ceccd8e1b4,
+    type: 2}
+  m_PrefabInternal: {fileID: 1553371183}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &937646038
 Prefab:
   m_ObjectHideFlags: 0
@@ -3583,6 +3545,12 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 971239803}
+--- !u!114 &990319026 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114298085746713318, guid: 67d10f9a0f8892541b8d20ceccd8e1b4,
+    type: 2}
+  m_PrefabInternal: {fileID: 1483419469}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &997291708
 Prefab:
   m_ObjectHideFlags: 0
@@ -4676,6 +4644,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &1319307419 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114298085746713318, guid: 67d10f9a0f8892541b8d20ceccd8e1b4,
+    type: 2}
+  m_PrefabInternal: {fileID: 997291708}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &1339400994
 Prefab:
   m_ObjectHideFlags: 0
@@ -4814,6 +4788,20 @@ MonoBehaviour:
   num:
   - {fileID: 1152375294}
   - {fileID: 1168223951}
+  playerOccupied:
+  - occupied: 0
+    inputMode: 0
+    text: {fileID: 990319026}
+  - occupied: 0
+    inputMode: 0
+    text: {fileID: 908676674}
+  - occupied: 0
+    inputMode: 0
+    text: {fileID: 1319307419}
+  - occupied: 0
+    inputMode: 0
+    text: {fileID: 381617310}
+  mousePicked: 0
 --- !u!1 &1436906629
 GameObject:
   m_ObjectHideFlags: 0

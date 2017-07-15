@@ -6,3 +6,5 @@ All keyboard versions are set up to different regions of the keyboard, so that y
 multiple keyboards, which are recognised as the same, and have more room for the players' hands.
 
 All Controller inputs are set up to work per individual controller.
+Joystick works using the controller selection (1-2-3-4)
+Button only works when joystick is set in the name ("joystick 1 button 0")

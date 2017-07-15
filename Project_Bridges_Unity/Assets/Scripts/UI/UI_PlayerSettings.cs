@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEditor;
+//using UnityEditor;
 
 public class UI_PlayerSettings : MonoBehaviour
 {
@@ -11,30 +11,17 @@ public class UI_PlayerSettings : MonoBehaviour
     public List<Slider> sliders;
     public List<Text> num;
 
-    public bool player1Occupied;
-    public bool player2Occupied;
-    public bool player3Occupied;
-    public bool player4Occupied;
+    [Header("Stuff")]
+    public List<_UIPlayer> playerOccupied;
+    public bool mousePicked;
 
-    public List<bool> playerOccupied;
+    private List<string> allInputs;
+    private List<string> detectedInputs;
+    private List<string> activeInputs;
 
-    public List<string> allInputs;
-    public List<string> detectedInputs;
-    public List<string> activeInputs;
-
-
-    // Use this for initialization
-    void Start()
-    {
-        playerOccupied = new List<bool>(4);
-        GetInputs();
-        GetPlayers();
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        GetPlayers();
+        GetInputs();
     }
 
     public void UpdateText()
@@ -45,67 +32,41 @@ public class UI_PlayerSettings : MonoBehaviour
         }
     }
 
-    public void GetInputs()
+    void GetInputs()
     {
+        //Inputs to check
+        //LMB (1)
+        //Key 1 2 3 4
+        //Button A 1 2 3 4
 
-        //FROM http://answers.unity3d.com/questions/951770/get-array-of-all-input-manager-axes.html
-        var inputManager = AssetDatabase.LoadAllAssetsAtPath("ProjectSettings/InputManager.asset")[0];
-
-        SerializedObject obj = new SerializedObject(inputManager);
-
-        SerializedProperty axisArray = obj.FindProperty("m_Axes");
-
-        if (axisArray.arraySize == 0)
-            Debug.Log("No Axes");
-
-        for (int i = 0; i < axisArray.arraySize; ++i)
+        for (int i = 1; i <= 4; i++)
         {
-            var axis = axisArray.GetArrayElementAtIndex(i);
+            if (!playerOccupied[i - 1].occupied)
+            {
+                if (Input.GetAxis("Player_" + i + "_Mouse_Button") != 0 && !mousePicked) //MouseInput
+                {
+                    if (playerOccupied[i - 1].occupied != true)
+                    {
+                        OccupyPlayer(i, InputMode.Mouse);
+                        mousePicked = true;
+                    }
+                }
 
-            var name = axis.FindPropertyRelative("m_Name").stringValue;
-            allInputs.Add(name);
-            var axisVal = axis.FindPropertyRelative("axis").intValue;
-            var inputType = (InputType)axis.FindPropertyRelative("type").intValue;
+                if (Input.GetAxis("Player_" + i + "_Keyboard_Button") != 0) //KeyboardInput
+                    OccupyPlayer(i, InputMode.Keyboard);
 
-            //Debug.Log(name);
-            //Debug.Log(axisVal);
-            //Debug.Log(inputType);
+                if (Input.GetAxis("Player_" + i + "_Controller_Button") != 0) //ControllerInput
+                    OccupyPlayer(i, InputMode.Controller);
+            }
         }
     }
 
-    public void GetPlayers() {
-
-        //foreach (string s in allInputs) {
-        //    if (Input.GetAxis(s) != 0 && !detectedInputs.Contains(s)) {
-        //        string[] inputSplit = s.Split('_'); //get the player number
-        //        detectedInputs.Add(s); //place the inputs in a thing.
-        //        foreach (string sa in detectedInputs)
-        //        {
-        //            string[] activeSplit = sa.Split('_');
-        //            if (inputSplit[1] == activeSplit[1] && !activeInputs.Contains(s))
-        //            {
-        //                activeInputs.Add(s);
-        //            }
-        //        }
-        //    }
-        //}
-
-        for (int i = 0; i < playerOccupied.Count; i++)
-        {
-            if (!playerOccupied[i])
-            {
-                foreach (string s in allInputs)
-                {
-                    if (Input.GetAxis(s) != 0)
-                    {
-                        string[] inputSplit = s.Split('_'); //get the player number
-                        if (i == int.Parse(inputSplit[1])) {
-                            playerOccupied[i] = true;
-                        }
-                    }
-                }
-            }
-        }
+    public void OccupyPlayer(int _num, InputMode _inputmode)
+    {
+        Debug.Log("Occupied Player " + (_num - 1) + " with " + _inputmode.ToString());
+        playerOccupied[_num - 1].occupied = true;
+        playerOccupied[_num - 1].inputMode = _inputmode;
+        playerOccupied[_num - 1].text.text = _inputmode.ToString();
     }
 
     public enum InputType
@@ -116,4 +77,9 @@ public class UI_PlayerSettings : MonoBehaviour
     };
 }
 
-
+[System.Serializable]
+public class _UIPlayer {
+    public bool occupied;
+    public InputMode inputMode;
+    public Text text;
+}
