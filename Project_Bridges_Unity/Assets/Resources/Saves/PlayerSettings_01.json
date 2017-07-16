@@ -1,0 +1,21 @@
+{
+    "amountofPlayers": 3,
+    "amountOfBlocksEach": 2,
+    "players": [
+        {
+            "name": "Player_1",
+            "playerNum": 1,
+            "inputMode": 0
+        },
+        {
+            "name": "Player_2",
+            "playerNum": 2,
+            "inputMode": 0
+        },
+        {
+            "name": "Player_3",
+            "playerNum": 3,
+            "inputMode": 0
+        }
+    ]
+}
