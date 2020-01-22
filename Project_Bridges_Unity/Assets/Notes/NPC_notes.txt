@@ -1,6 +1,0 @@
-This is what the NPC needs to do:
-- It needs to b able to evaluate the blocks that have been placed and figure out what the longest route is.
-	- This is done by a 'Leader' gameobject that moves ahead and stores each place in a list. If there is a brach it'll have to split and continue on both branches. After 1 second it'll count the longuest branch and move the NPC to the first position of that branch. Then the process repeats.
-
-- It needs to be able to collect collectibels.
-- When it reaches the end of the level it will trigger the loading of the next one.

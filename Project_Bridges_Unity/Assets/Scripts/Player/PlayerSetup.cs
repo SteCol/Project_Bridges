@@ -30,8 +30,8 @@ public class PlayerSetup : MonoBehaviour
 
     void Update()
     {
-
-        amountOfBlocksEach =  (int)amountOfBlocksSlider.value;
+        if (amountOfBlocksSlider != null)
+            amountOfBlocksEach =  (int)amountOfBlocksSlider.value;
 
         if (generatePlayers)
         {
